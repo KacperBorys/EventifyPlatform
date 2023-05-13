@@ -1,15 +1,25 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 
 <style>
-    h1{
-        text-align: center;
+    body {
+        font-family: Poppins, sans-serif;
     }
+
+    h1 {
+        text-align: center;
+        color: white;
+        text-transform: uppercase;
+    }
+
     .wrap {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: center;
         align-items: flex-start;
     }
 
@@ -19,6 +29,7 @@
         height: auto;
         background-color: #f2f2f2;
         border: 1px solid #0B001A;
+        margin-right: 25px;
         margin-bottom: 25px;
         border-bottom-right-radius: 5px;
         border-bottom-left-radius: 5px;
@@ -30,7 +41,7 @@
 
         .event img {
             width: 100%;
-            height: auto;
+            height: 200px;
             display: block;
             margin: 0;
             transition: filter 0.3s ease;
@@ -60,12 +71,13 @@
             color: #777;
             background-color: #ED3A85;
         }
-        .event .description div{
-            color: white;
-        }
+
+            .event .description div {
+                color: white;
+            }
 </style>
 <body>
-    <h1>Wydarzenia</h1>
+    <h1>events</h1>
 
     <div class="wrap">
         <div class="event">
@@ -79,7 +91,7 @@
 
         <div class="event">
             <img src="https://cdn.pixabay.com/photo/2017/12/08/11/53/event-party-3005668__340.jpg" alt="Wydarzenie 2">
-            <div class="description">         
+            <div class="description">
                 <div class="caption">Dowiedz się więcej</div>
                 <div>Data: 15 lutego 2023</div>
                 <div>Miejsce: Kraków</div>
@@ -96,12 +108,48 @@
         </div>
 
         <div class="event">
-            <img src="https://jandevents.com/wp-content/uploads/jand-party.jpg" alt="Wydarzenie 4">          
+            <img src="https://jandevents.com/wp-content/uploads/jand-party.jpg" alt="Wydarzenie 4">
             <div class="description">
                 <div class="caption">Dowiedz się więcej</div>
                 <div>Data: 27 września 2023</div>
                 <div>Miejsce: Kraków</div>
-            </div>                
+            </div>
+        </div>
+
+        <div class="event">
+            <img src="https://i.pinimg.com/736x/1d/6b/b0/1d6bb07de56417b386a75bb6591f615e.jpg" alt="Wydarzenie 5">
+            <div class="description">
+                <div class="caption">Dowiedz się więcej</div>
+                <div>Data: 1 stycznia 2023</div>
+                <div>Miejsce: Warszawa</div>
+            </div>
+        </div>
+
+        <div class="event">
+            <img src="https://i.pinimg.com/750x/76/7e/ae/767eaeec66c44b3eae020c5fbea51c71.jpg" alt="Wydarzenie 6">
+            <div class="description">
+                <div class="caption">Dowiedz się więcej</div>
+                <div>Data: 15 lutego 2023</div>
+                <div>Miejsce: Kraków</div>
+            </div>
+        </div>
+
+        <div class="event">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQswxGU-j5ya1AXFRAP4fgJzLQhIvKcpgGaba5qOMIh6sGRx4WFKSGQcAZ77fZOfqG6FyU&usqp=CAU" alt="Wydarzenie 7">
+            <div class="description">
+                <div class="caption">Dowiedz się więcej</div>
+                <div>Data: 10 marca 2023</div>
+                <div>Miejsce: Gdańsk</div>
+            </div>
+        </div>
+
+        <div class="event">
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZXZlbnR8ZW58MHx8MHx8&w=1000&q=80" alt="Wydarzenie 8">
+            <div class="description">
+                <div class="caption">Dowiedz się więcej</div>
+                <div>Data: 5 października 2023</div>
+                <div>Miejsce: Wrocław</div>
+            </div>
         </div>
     </div>
 
