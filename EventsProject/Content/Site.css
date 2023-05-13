@@ -3,6 +3,10 @@
     padding-bottom: 20px;
 }
 
+.landing-page-container{
+    width: 40vw;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -25,6 +29,6 @@ textarea {
 
 .navbar-inverse .navbar-toggle:hover,
 .navbar-inverse .navbar-toggle:focus {
-    background-color: #777;
-    border-color: #fff
+   background-color: #777;
+    border-color: #fff;
 }
