@@ -88,10 +88,59 @@
     .question-title {
         font-size: 30px;
         color: white;
-        font-weight: 500;
-        text-align: left;
-        
+        font-weight: 900;
+        text-transform: uppercase;
+        text-align: center;
     }
+    .center{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .button-28 {
+        appearance: none;
+        background-color: transparent;
+        border: 2px solid #5CE1E6;
+        border-radius: 15px;
+        box-sizing: border-box;
+        color: #5CE1E6;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: normal;
+        margin: 0 auto;
+        min-height: 60px;
+        min-width: 0;
+        outline: none;
+        padding: 16px 24px;
+        text-align: center;
+        text-decoration: none;
+        transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        width: 20%;
+        will-change: transform;
+    }
+
+    .button-28:disabled {
+        pointer-events: none;
+    }
+
+        .button-28:hover {
+            color: #fff;
+            background-color: rgb(92, 225, 230);
+            box-shadow: rgb(92, 225, 230,0.75)0 8px 15px;
+            transform: translateY(-2px);
+        }
+
+    .button-28:active {
+        box-shadow: none;
+        transform: translateY(0);
+    }
+        
+    
 </style>
 <body>
     <h1 style="font-size: 40px; text-transform: uppercase; color: white; font-weight: 900;">events</h1>
@@ -100,7 +149,7 @@
         <div class="event">
             <img src="https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?cs=srgb&dl=pexels-wolfgang-2747449.jpg&fm=jpg" alt="Wydarzenie 1">
             <div class="description">
-                <div class="caption">Dowiedz się więcej</div>
+                <div class="caption">find out more</div>
                 <div> 01.01.2023</div>
                 <div >WARSZAWA</div>
             </div>
@@ -109,7 +158,7 @@
         <div class="event">
             <img src="https://cdn.pixabay.com/photo/2017/12/08/11/53/event-party-3005668__340.jpg" alt="Wydarzenie 2">
             <div class="description">
-                <div class="caption">Dowiedz się więcej</div>
+                <div class="caption">find out more</div>
                 <div>15 lutego 2023</div>
                 <div>Kraków</div>
             </div>
@@ -118,7 +167,7 @@
         <div class="event">
             <img src="https://images.shiksha.com/mediadata/images/articles/1583747992phpzaxKKK.jpeg" alt="Wydarzenie 3">
             <div class="description">
-                <div class="caption">Dowiedz się więcej</div>
+                <div class="caption">find out more</div>
                 <div>10 marca 2023</div>
                 <div>Gdańsk</div>
             </div>
@@ -127,7 +176,7 @@
         <div class="event">
             <img src="https://jandevents.com/wp-content/uploads/jand-party.jpg" alt="Wydarzenie 4">
             <div class="description">
-                <div class="caption">Dowiedz się więcej</div>
+                <div class="caption">find out more</div>
                 <div>27.09.2023</div>
                 <div>Kraków</div>
             </div>
@@ -136,7 +185,7 @@
         <div class="event">
             <img src="https://i.pinimg.com/736x/1d/6b/b0/1d6bb07de56417b386a75bb6591f615e.jpg" alt="Wydarzenie 5">
             <div class="description">
-                <div class="caption">Dowiedz się więcej</div>
+                <div class="caption">find out more</div>
                 <div>1.01.2023</div>
                 <div>Warszawa</div>
             </div>
@@ -145,7 +194,7 @@
         <div class="event">
             <img src="https://i.pinimg.com/750x/76/7e/ae/767eaeec66c44b3eae020c5fbea51c71.jpg" alt="Wydarzenie 6">
             <div class="description">
-                <div class="caption">Dowiedz się więcej</div>
+                <div class="caption">find out more</div>
                 <div>5.07.2023</div>
                 <div>Kraków</div>
             </div>
@@ -154,7 +203,7 @@
         <div class="event">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQswxGU-j5ya1AXFRAP4fgJzLQhIvKcpgGaba5qOMIh6sGRx4WFKSGQcAZ77fZOfqG6FyU&usqp=CAU" alt="Wydarzenie 7">
             <div class="description">
-                <div class="caption">Dowiedz się więcej</div>
+                <div class="caption">find out more</div>
                 <div>10.03.2023</div>
                 <div>Gdańsk</div>
             </div>
@@ -163,15 +212,20 @@
         <div class="event">
             <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZXZlbnR8ZW58MHx8MHx8&w=1000&q=80" alt="Wydarzenie 8">
             <div class="description">
-                <div class="caption">Dowiedz się więcej</div>
+                <div class="caption">find out more</div>
                 <div>5.10.2023</div>
                 <div>Wrocław</div>
             </div>
         </div>
     </section>
-    <section>
-        <div style="text-decoration-line: underline; text-decoration-color: white; text-decoration-thickness: 1px; text-underline-offset: 6px;" class="question-title">Chcesz <span style="color: #ED3A85;">dodać</span> swoje <span style="color: #ED3A85;">wydarzenie</span>?</div>
-        <div class="question-title">Utwórz je u nas!</div>
+    <section class="center">
+        <div>
+            <div style="text-decoration-line: underline; text-decoration-color: white; text-decoration-thickness: 1px; text-underline-offset: 6px;" class="question-title">Chcesz <span style="color: #ED3A85;">dodać</span> swoje <span style="color: #ED3A85;">wydarzenie</span>?</div>
+            <div class="question-title">Utwórz je u nas!</div>
+        </div>
+        <!-- HTML !-->
+
+        <button style="margin-top: 20px;" class="button-28" role="button">CREATE EVENT</button>
     </section>
 
     <script>
