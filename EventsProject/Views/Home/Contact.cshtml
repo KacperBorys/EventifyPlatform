@@ -1,17 +1,117 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<style>
+    h1{
+        text-align: center;
+    }
+    .wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+    .event {
+        position: relative;
+        width: 300px;
+        height: auto;
+        background-color: #f2f2f2;
+        border: 1px solid #0B001A;
+        margin-bottom: 25px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        padding: 0px;
+        box-sizing: border-box;
+        overflow: hidden;
+        text-align: center;
+    }
+
+        .event img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0;
+            transition: filter 0.3s ease;
+        }
+
+        .event:hover img {
+            filter: brightness(60%);
+        }
+
+        .event .caption {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            font-weight: bold;
+            color: #5CE1E6;
+            cursor: pointer;
+        }
+
+        .event:hover .caption {
+            display: block;
+        }
+
+        .event .description {
+            padding-top: 5px;
+            color: #777;
+            background-color: #ED3A85;
+        }
+        .event .description div{
+            color: white;
+        }
+</style>
+<body>
+    <h1>Wydarzenia</h1>
+
+    <div class="wrap">
+        <div class="event">
+            <img src="https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?cs=srgb&dl=pexels-wolfgang-2747449.jpg&fm=jpg" alt="Wydarzenie 1">
+            <div class="description">
+                <div class="caption">Dowiedz się więcej</div>
+                <div>Data: 1 stycznia 2023</div>
+                <div>Miejsce: Warszawa</div>
+            </div>
+        </div>
+
+        <div class="event">
+            <img src="https://cdn.pixabay.com/photo/2017/12/08/11/53/event-party-3005668__340.jpg" alt="Wydarzenie 2">
+            <div class="description">         
+                <div class="caption">Dowiedz się więcej</div>
+                <div>Data: 15 lutego 2023</div>
+                <div>Miejsce: Kraków</div>
+            </div>
+        </div>
+
+        <div class="event">
+            <img src="https://images.shiksha.com/mediadata/images/articles/1583747992phpzaxKKK.jpeg" alt="Wydarzenie 3">
+            <div class="description">
+                <div class="caption">Dowiedz się więcej</div>
+                <div>Data: 10 marca 2023</div>
+                <div>Miejsce: Gdańsk</div>
+            </div>
+        </div>
+
+        <div class="event">
+            <img src="https://jandevents.com/wp-content/uploads/jand-party.jpg" alt="Wydarzenie 4">          
+            <div class="description">
+                <div class="caption">Dowiedz się więcej</div>
+                <div>Data: 27 września 2023</div>
+                <div>Miejsce: Kraków</div>
+            </div>                
+        </div>
+    </div>
+
+    <script>
+        const captions = document.querySelectorAll('.caption');
+
+        captions.forEach(caption => {
+            caption.addEventListener('click', () => {
+                alert('Kliknięto "Dowiedz się więcej"');
+            });
+        });
+    </script>
+</body>
