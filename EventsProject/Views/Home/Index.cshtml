@@ -3,21 +3,25 @@
 }
 @Styles.Render("~/Content/css")
 @Styles.Render("~/Content/Site.css")
+<link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 
 <style>
     body {
+        font-family: Poppins, sans-serif;
         background-color: #0B001A;
     }
 
     main {
         display: flex;
         justify-content: center;
-        
         text-align: justify;
         height: 100vh;
         /* background-color: red; */
     }
-   /* section {
+    /* section {
         width: 70vw;
         max-width: 1000px;
 
@@ -26,8 +30,10 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
+        align-items: center;
         padding-top: 50px;
         max-width: 400px;
+        color: white;
     }
 
     .profile-picture {
@@ -42,15 +48,84 @@
     }
 
     .title {
-        font-weight: 900;
+        font-weight: 400;
         font-size: 4vw;
         line-height: 100%;
     }
+    .title-underline {
+        text-decoration-line: underline;
+        text-decoration-color: white;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 6px;
+    }
 
     .subText {
-        font-size: 2.5vw;
-        width: 50vw;
+        margin-top: 10px;
+        font-size: 1vw;
+        width: 30vw;
     }
+
+.glow-on-hover {
+    width: 220px;
+    height: 50px;
+    margin-top: 20px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
 </style>
 <body>
     <main>
@@ -58,17 +133,21 @@
             <div class="top-section">
                 <div class="landing-page-container">
                     <div class="subText"></div>
-                    <div class="title">the beauty</div>
-                    <div class="title">of the events world</div>
-                    <div class="subText">asdasafsd asdfsdfgsadg sdg</div>
+                    <div class="title title-underline">Discover the<img src="~/Image/star_icon.png" style="width: 4vw; display: inline; margin-left: 10px;"/></div>
+                    <div  class="title title-underline"><span style="color: #ED3A85;">beauty of the</span></div>
+                    <div class="title">events <span style="color: #ED3A85; font-style: italic;">world</span></div>
+                    <div class="subText">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a lacus vel nulla tempor feugiat.
+                        Duis sodales dignissim risus vel lacinia. Nunc pretium tincidunt accumsan
+                    </div>
+                    <button class="glow-on-hover" type="button">Explore!</button>
                 </div>
                 <div>
                     <img class="profile-picture" src="~/Image/landing-page-image.png">
                 </div>
+
             </div>
-            <button class="resume-button" style="text-decoration: none; color: rgb(45, 4, 55);">
-                Resume
-            </button>
+
         </section>
     </main>
 </body>

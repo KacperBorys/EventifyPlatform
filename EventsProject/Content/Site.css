@@ -34,3 +34,26 @@ textarea {
     border-color: #fff;
 }
 
+.top-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+    max-width: 1000px;
+}
+.landing-page-container {
+    margin: 40px 0 0 0px;
+    top: 0;
+    width: 100vw;
+}
+
+.title {
+    font-weight: 900;
+    font-size: 8vw;
+    line-height: 100%;
+}
+
+.subText {
+    font-size: 2.5vw;
+    width: 50vw;
+}
