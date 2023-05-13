@@ -123,6 +123,73 @@
         50% { background-position: 400% 0; }
         100% { background-position: 0 0; }
     }
+    .event {
+        position: relative;
+        width: 300px;
+        height: auto;
+        background-color: #f2f2f2;
+        border: 1px solid #0B001A;
+        margin-right: 25px;
+        margin-bottom: 25px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        padding: 0px;
+        box-sizing: border-box;
+        overflow: hidden;
+        text-align: center;
+    }
+
+        .event img {
+            width: 100%;
+            height: 200px;
+            display: block;
+            margin: 0;
+            transition: filter 0.3s ease;
+        }
+
+        .event:hover img {
+            filter: brightness(60%);
+        }
+
+        .event .caption {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            font-weight: bold;
+            font-size: 20px;
+            color: #5CE1E6;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .event:hover .caption {
+            display: block;
+            color: #5CE1E6;
+        }
+
+        .event .description {
+            padding-top: 5px;
+            color: #777;
+            background-color: #ED3A85;
+        }
+
+        .event div {
+            color: white;
+        }
+
+        .description {
+            color: white;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+        .upcoming-events{
+            display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        }
 
 </style>
 <body>
@@ -131,8 +198,8 @@
             <div class="top-section">
                 <div class="landing-page-container">
                     <div class="subText"></div>
-                    <div class="title title-underline">Discover the<img src="~/Image/star_icon.png" style="width: 4vw; display: inline; margin-left: 10px;"/></div>
-                    <div  class="title title-underline"><span style="color: #ED3A85;">beauty of the</span></div>
+                    <div class="title title-underline">Discover the<img src="~/Image/star_icon.png" style="width: 4vw; display: inline; margin-left: 10px;" /></div>
+                    <div class="title title-underline"><span style="color: #ED3A85;">beauty of the</span></div>
                     <div class="title">events <span style="color: #ED3A85; font-style: italic;">world</span></div>
                     <div class="subText">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a lacus vel nulla tempor feugiat.
@@ -148,8 +215,39 @@
             </div>
 
         </section>
-        <section>
-            <div style="font-size: 40px; text-transform: uppercase; color: white; font-weight: 900;">Nadchodzące wydarzenia</div>
+        <div style="font-size: 40px; text-align: center; text-transform: uppercase; color: white; font-weight: 900;">UP COMING EVENTS</div>
+        <section class="upcoming-events">
+
+            <div class="upcoming-events">
+                <div class="event">
+                    <img src="https://i.pinimg.com/736x/1d/6b/b0/1d6bb07de56417b386a75bb6591f615e.jpg" alt="Wydarzenie 5">
+                    <div class="description">
+                        <div class="caption">find out more</div>
+                        <div>1.01.2023</div>
+                        <div>Warszawa</div>
+                    </div>
+                </div>
+
+                <div class="event">
+                    <img src="https://i.pinimg.com/750x/76/7e/ae/767eaeec66c44b3eae020c5fbea51c71.jpg" alt="Wydarzenie 6">
+                    <div class="description">
+                        <div class="caption">find out more</div>
+                        <div>5.07.2023</div>
+                        <div>Kraków</div>
+                    </div>
+                </div>
+
+                <div class="event">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQswxGU-j5ya1AXFRAP4fgJzLQhIvKcpgGaba5qOMIh6sGRx4WFKSGQcAZ77fZOfqG6FyU&usqp=CAU" alt="Wydarzenie 7">
+                    <div class="description">
+                        <div class="caption">find out more</div>
+                        <div>10.03.2023</div>
+                        <div>Gdańsk</div>
+                    </div>
+                </div>
+            </div>
         </section>
+
+
     </main>
 </body>
