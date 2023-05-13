@@ -4,24 +4,71 @@
 @Styles.Render("~/Content/css")
 @Styles.Render("~/Content/Site.css")
 
-<body>
-    <section>
-        <div style="display: flex; justify-content: center; align-content: center;">
-            <div class="landing-page-container">
-                <div>
-                    Discover the beauty of the events world
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Phasellus nec arcu blandit, sodales nulla ac, posuere nulla. Donec eget aliquam purus, sit amet porta mi.
-                </div>
-                <button>
-                </button>
-            </div>
+<style>
+    body {
+        background-color: #0B001A;
+    }
 
-            <div class="landing-page-container">
-                <img width="400" src="~/Image/landing-page-image.png" />
+    main {
+        display: flex;
+        justify-content: center;
+        
+        text-align: justify;
+        height: 100vh;
+        /* background-color: red; */
+    }
+   /* section {
+        width: 70vw;
+        max-width: 1000px;
+
+    }*/
+    .top-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding-top: 50px;
+        max-width: 400px;
+    }
+
+    .profile-picture {
+        width: 40vw;
+        max-width: 500px;
+    }
+
+    .landing-page-container {
+        margin: 40px 0 0 0px;
+        top: 0;
+        width: 100vw;
+    }
+
+    .title {
+        font-weight: 900;
+        font-size: 4vw;
+        line-height: 100%;
+    }
+
+    .subText {
+        font-size: 2.5vw;
+        width: 50vw;
+    }
+</style>
+<body>
+    <main>
+        <section>
+            <div class="top-section">
+                <div class="landing-page-container">
+                    <div class="subText"></div>
+                    <div class="title">the beauty</div>
+                    <div class="title">of the events world</div>
+                    <div class="subText">asdasafsd asdfsdfgsadg sdg</div>
+                </div>
+                <div>
+                    <img class="profile-picture" src="~/Image/landing-page-image.png">
+                </div>
             </div>
-        </div>
-    </section>
+            <button class="resume-button" style="text-decoration: none; color: rgb(45, 4, 55);">
+                Resume
+            </button>
+        </section>
+    </main>
 </body>
