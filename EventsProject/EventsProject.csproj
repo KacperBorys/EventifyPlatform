@@ -195,6 +195,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\avatar.png" />
     <Content Include="Image\landing-page-image.png" />
     <Content Include="Image\star_icon.png" />
     <Content Include="lib\font-awesome\css\all.css" />
@@ -293,6 +294,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\CreateEvent.cshtml" />
+    <Content Include="Views\Home\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
