@@ -35,5 +35,10 @@ namespace EventsProject.Controllers
         {
             return View();
         }
+
+        public ActionResult Event_Informations() 
+        {
+            return View();
+        }
     }
 }
