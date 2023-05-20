@@ -17,7 +17,7 @@
         align-items: center;
         flex-direction: column;
         margin-top: 150px;
-        border: 2px solid #5CE1E6;
+        border: 5px solid #5CE1E6;
         border-radius: 20px;
         padding: 30px;
         max-width: 700px;
@@ -49,12 +49,19 @@
         margin: 5px;
     }
 
-    .button {
-        width: 200px;
-        border-radius: 15px;
-        background-color: #ED3A85;
-        padding: 5px;
-        color: white;
+    .glow-on-hover {
+        width: 220px;
+        height: 50px;
+        margin-top: 20px;
+        border: none;
+        outline: none;
+        color: #fff;
+        background: #111;
+        cursor: pointer;
+        position: relative;
+        font-size: 15px;
+        z-index: 0;
+        border-radius: 10px;
     }
 
       .glow-on-hover a{
@@ -115,9 +122,9 @@
             background-position: 0 0;
         }
 
-        50% {
-            background-position: 400% 0;
-        }
+    .button a{
+        color: white;
+    }
 
         100% {
             background-position: 0 0;
@@ -154,11 +161,6 @@
                             @Html.CheckBoxFor(m => m.RememberMe)
                             @Html.LabelFor(m => m.RememberMe)
                         </div>
-                    </div>
-                </div>
-                <div class="margin">
-                    <div>
-                        <input type="submit" value="LOGIN" class="button form-control"/>
                     </div>
                 </div>
 
