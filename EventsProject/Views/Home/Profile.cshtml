@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "Profile";
+}
+
+<style>
+    body {
+        color: white; /* Biała czcionka */
+        font-family: Poppins, sans-serif;
+    }
+
+    #container {
+        display: flex;
+        margin-top: 50px;
+    }
+
+    #left-side {
+        flex-basis: 50%;
+    }
+
+    #right-side {
+        flex-basis: 50%;
+        padding-left: 20px; /* Dodatkowy odstęp między lewą a prawą stroną */
+    }
+
+        #right-side p {
+            margin-top: 0; /* Usunięcie domyślnego marginesu dla akapitu */
+        }
+
+    .ticket {
+        margin-bottom: 15px; /* Odstęp między kolejnymi biletami */
+        font-size: 17px;
+    }
+
+    .active {
+        color: #5CE1E6; /* Kolor aktywnych biletów */
+    }
+
+    .expired {
+        color: #ED3A85; /* Kolor przeterminowanych biletów */
+    }
+
+    .divider {
+        height: 2px;
+        background-color: #5CE1E6; /* Kolor turkusowej linii */
+        margin: 10px 0; /* Odstęp nad i pod liniami */
+        width: 80px;
+    }
+
+    .user-name {
+        color: #ED3A85; /* Kolor imienia i nazwiska */
+        font-size: 50px; /* Powiększona czcionka */
+    }
+
+    .tickets-section {
+        background-color: #2c0052; /* Kolor ciemnoniebieskiego tła */
+        padding: 10px;
+        margin-top: 30px;
+        border-radius:15px;
+        width:80%;
+        font-weight:bold;
+    }
+
+    .tickets-heading {
+        color: #ED3A85; /* Kolor różowego napisu nad tickety */
+        font-size: 50px;
+        margin-bottom: 10px;
+    }
+
+
+
+</style>
+
+<body>
+    <div id="container">
+        <div id="left-side">
+            <img src="~/Image/avatar.png" alt="Zdjęcie" style="height: 50vh;">
+        </div>
+        <div id="right-side">
+            <p class="user-name">Name SURNAME</p>
+            <div class="divider"></div>
+            <div style="margin-top: 30px; font-size: 30px;">
+                <p><span style="color: #ED3A85;font-weight:bold">Email:</span> example@example.com</p>
+                <p><span style="color: #ED3A85;font-weight:bold">Phone number:</span> 123-456-789</p>
+                <p><span style="color: #ED3A85;font-weight:bold">Given reviews:</span> 20</p>
+            </div>
+
+            <div class="tickets-section">
+                <h3 class="tickets-heading">Your tickets</h3>
+                <div style="margin-left:30px;">
+                    <div class="ticket">
+                        <p>Koncert Malika Montany 21.03.2023 <span class="active">[Active]</span></p>
+                    </div>
+
+                    <div class="ticket">
+                        <p>Koncert Innej Osoby 15.01.2023 <span class="expired">[Expired]</span></p>
+                    </div>
+
+                    <div class="ticket">
+                        <p>Koncert Kolejnej Osoby 10.05.2023 <span class="active">[Active]</span></p>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+</body>
