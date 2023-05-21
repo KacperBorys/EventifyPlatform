@@ -60,6 +60,7 @@
 
 
 
+
 </style>
 <body>
     <main>
@@ -80,36 +81,47 @@
 
             <div class="form-group">
                 <label for="eventDescription">Event Description:</label>
-                <textarea style="background-color:lightgray" class="evenField" , name="eventDescription"></textarea>
+                <textarea maxlength="100" style="background-color:lightgray" class="evenField" , name="eventDescription"></textarea>
             </div>
 
             <div class="form-group">
                 <label for="ticketPriceNormal">Ticket Price (Normal):</label>
-                <input type="number" class="evenField" , name="ticketPriceNormal" required>
+                <input type="number" class="evenField" name="ticketPriceNormal" min="0" required>
             </div>
 
             <div class="form-group">
                 <label for="ticketPriceReduced">Ticket Price (Reduced):</label>
-                <input type="number" class="evenField" , name="ticketPriceReduced" required>
+                <input type="number" class="evenField" name="ticketPriceReduced" min="0" required>
             </div>
-
             <div class="form-group">
                 <label for="eventCategory">Event Category:</label>
-                <input type="text" class="evenField" , name="eventCategory" required>
+                <select class="evenField" name="eventCategory" required style="color: black; background-color: lightgrey;">
+                    <option value="Festival">Festival</option>
+                    <option value="Concert">Concert</option>
+                    <option value="Business_meeting">Business Meeting</option>
+                    <option value="Other">Other</option>
+                </select>
             </div>
 
             <div class="form-group">
                 <label for="availableSeats">Available Seats:</label>
-                <input type="number" class="evenField" , name="availableSeats" required>
+                <input type="number" class="evenField" name="availableSeats" min="0" required>
             </div>
+
             <div class="form-group">
                 <label for="eventStartTime">Event Start Time:</label>
-                <input style="color: black" type="time" class="evenField" , name="eventStartTime" required>
+                <input style="color: black; background-color: lightgrey;" type="time" class="evenField" name="eventStartTime" required">
             </div>
 
             <div class="form-group">
                 <label for="targetAudience">Target Audience:</label>
-                <input type="text" class="evenField" , name="targetAudience" required>
+                <select class="evenField" name="targetAudience" required style="color: black; background-color: lightgrey;">
+                    <option value="Youth">Youth</option>
+                    <option value="Parents">Parents</option>
+                    <option value="Families">Families</option>
+                    <option value="Businessmen">Businessmen</option>
+                    <option value="Other">Other</option>
+                </select>
             </div>
             <button type="submit">Create Event</button>
         </form>
