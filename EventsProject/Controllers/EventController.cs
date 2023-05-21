@@ -14,7 +14,9 @@ namespace EventsProject.Controllers
         {
             return View();
         }
+        public static List<Event> eventsList = new List<Event>() { };
         [HttpPost]
+        
         public ActionResult Create(Event model)
         {
             if (ModelState.IsValid)
@@ -34,11 +36,8 @@ namespace EventsProject.Controllers
                     model.EventStartTime,
                     model.EventTargetAudience
                 );
-
-                Console.WriteLine("Event stworzony");
-                // Wykonaj operacje na nowo utworzonym obiekcie Event, na przykład zapisz go w bazie danych
-                ViewBag.Message = "Event został utworzony pomyślnie";
-                Console.WriteLine("Event stworzony");
+                
+                eventsList.Add(newEvent);
                 return RedirectToAction("Events", "Home"); // Przekierowanie do innej akcji po utworzeniu obiektu Event
             }
 
@@ -46,7 +45,5 @@ namespace EventsProject.Controllers
 
             return View(model);
         }
-
-       
     }
 }

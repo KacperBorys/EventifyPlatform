@@ -13,11 +13,11 @@ namespace EventsProject.Models.Classes
         { 
         }
 
-        public void addAccount(Person p)
+        public void AddAccount(Person p)
         {
             accounts.Add(p);
         }
-        public void removeAcount(Person p)
+        public void RemoveAcount(Person p)
         {
             accounts.Remove(p);
         }
