@@ -9,16 +9,16 @@ namespace EventsProject.Models.Classes
     {
         public Person(string firstName, string lastName, string email, string phone)
         {
-            Person_FirstName = firstName;
-            Person_LastName = lastName;
-            Person_Email = email;
-            Person_Phone = phone;
+            PersonFirstName = firstName;
+            PersonLastName = lastName;
+            PersonEmail = email;
+            PersonPhone = phone;
         }
 
-        public string Person_FirstName { get; set; }
-        public string Person_LastName { get; set; }
-        public string Person_Email { get; set; }
-        public string Person_Phone { get; set; }
+        public string PersonFirstName { get; set; }
+        public string PersonLastName { get; set; }
+        public string PersonEmail { get; set; }
+        public string PersonPhone { get; set; }
 
     }
 }
