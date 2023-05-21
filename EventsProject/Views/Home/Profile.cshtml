@@ -8,14 +8,35 @@
         font-family: Poppins, sans-serif;
     }
 
+    #avatar {
+        border-radius: 50%;
+        overflow: hidden;
+        width: 50vh;
+        height: 50vh;
+        object-fit: cover;
+        position: relative;
+
+    }
+    #avatar-text {
+        display: none;
+        color: white;
+        font-size: 20px;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    #left-side:hover #avatar-text {
+        display: block;
+    }
     #container {
         display: flex;
         margin-top: 50px;
-        width:80%;
     }
 
     #left-side {
         flex-basis: 50%;
+        align-items: center;
+        justify-content: center;
     }
 
     #right-side {
@@ -73,7 +94,9 @@
 <body>
     <div id="container">
         <div id="left-side">
-            <img src="~/Image/avatar.png" alt="Zdjęcie" style="height: 50vh;">
+            <input type="file" id="fileInput" style="display: none;" accept="image/*">
+            <img id="avatar" src="~/Image/avatar.png" alt="Zdjęcie" style="cursor: pointer;">
+            <p id="avatar-text" style="position: absolute; top: 43%; left: 26%; transform: translate(-50%, -50%); color: white; font-size: 20px;">Change your avatar</p>
         </div>
         <div id="right-side">
             <p class="user-name">Name SURNAME</p>
@@ -96,8 +119,24 @@
                     <div class="ticket">
                         <p>Koncert Kolejnej Osoby 10.05.2023 <span class="active">[Active]</span></p>
                     </div>
-                 </div>
+                </div>
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById("avatar").addEventListener("click", function () {
+            document.getElementById("fileInput").click();
+        });
+
+        document.getElementById("fileInput").addEventListener("change", function (event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                document.getElementById("avatar").src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        });
+    </script>
 </body>
