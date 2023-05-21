@@ -43,6 +43,7 @@
         width: 40vw;
         max-width: 500px;
     }
+
     .title {
         font-weight: 400;
         font-size: 4vw;
@@ -105,22 +106,34 @@
         opacity: 1;
     }
 
-        .glow-on-hover:after {
-            z-index: -1;
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: #ED3A85;
-            left: 0;
-            top: 0;
-            border-radius: 10px;
-        }
+    .glow-on-hover:after {
+        z-index: -1;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #ED3A85;
+        left: 0;
+        top: 0;
+        border-radius: 10px;
+    }
 
     @@keyframes glowing {
         0% { background-position: 0 0; }
         50% { background-position: 400% 0; }
         100% { background-position: 0 0; }
+    }
+    .who-we-are{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+    }
+
+    .who-we-are-text{
+        color: white;
+        font-size: 20px;
+        text-align: center;
     }
     .event {
         position: relative;
@@ -138,57 +151,57 @@
         text-align: center;
     }
 
-        .event img {
-            width: 100%;
-            height: 200px;
-            display: block;
-            margin: 0;
-            transition: filter 0.3s ease;
-        }
+    .event img {
+        width: 100%;
+        height: 200px;
+        display: block;
+        margin: 0;
+        transition: filter 0.3s ease;
+    }
 
-        .event:hover img {
-            filter: brightness(60%);
-        }
+    .event:hover img {
+        filter: brightness(60%);
+    }
 
-        .event .caption {
-            position: absolute;
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: none;
-            font-weight: bold;
-            font-size: 20px;
-            color: #5CE1E6;
-            text-transform: uppercase;
-            cursor: pointer;
-        }
+    .event .caption {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+        font-weight: bold;
+        font-size: 20px;
+        color: #5CE1E6;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
 
-        .event:hover .caption {
-            display: block;
-            color: #5CE1E6;
-        }
+    .event:hover .caption {
+        display: block;
+        color: #5CE1E6;
+    }
 
-        .event .description {
-            padding-top: 5px;
-            color: #777;
-            background-color: #ED3A85;
-        }
+    .event .description {
+        padding-top: 5px;
+        color: #777;
+        background-color: #ED3A85;
+    }
 
-        .event div {
-            color: white;
-        }
+    .event div {
+        color: white;
+    }
 
-        .description {
-            color: white;
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-        .upcoming-events{
-            display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        }
+    .description {
+        color: white;
+        font-weight: 900;
+        text-transform: uppercase;
+    }
+    .upcoming-events{
+        display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    }
 
     .wrap {
         display: flex;
@@ -197,6 +210,49 @@
         align-items: flex-start;
         margin-top: 20px;
     }
+    .button-28 {
+        text-align: center;
+        appearance: none;
+        background-color: transparent;
+        border: 2px solid rgb(237, 58, 133);
+        border-radius: 15px;
+        box-sizing: border-box;
+        color: #ED3A85;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: normal;
+        margin: 0 auto;
+        min-height: 60px;
+        min-width: 0;
+        outline: none;
+        padding: 16px 24px;
+        text-align: center;
+        text-decoration: none;
+        transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        width: 20%;
+        will-change: transform;
+    }
+
+        .button-28:disabled {
+            pointer-events: none;
+        }
+
+        .button-28:hover {
+            color: #fff;
+            background-color: #ED3A85;
+            box-shadow: rgb(237, 58, 133, 0.75)0 8px 15px;
+            transform: translateY(-2px);
+        }
+
+        .button-28:active {
+            box-shadow: none;
+            transform: translateY(0);
+        }
 
 </style>
 <body>
@@ -212,7 +268,7 @@
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a lacus vel nulla tempor feugiat.
                         Duis sodales dignissim risus vel lacinia. Nunc pretium tincidunt accumsan
                     </div>
-                    <button class="glow-on-hover" type="button">Let's explore!</button>
+                    <button id="main-button" class="glow-on-hover" type="button">Let's explore!</button>
                 </div>
                 <div style="margin:0 20px"></div>
                 <div>
@@ -222,38 +278,63 @@
             </div>
 
         </section>
-       <div style="font-size: 40px; text-align: center; text-transform: uppercase; color: white; font-weight: 900; margin-top: 40px;">UP COMING EVENTS</div>
-        <section class="wrap">
-                <div class="event">
-                    <img src="https://i.pinimg.com/736x/1d/6b/b0/1d6bb07de56417b386a75bb6591f615e.jpg" alt="Wydarzenie 5" >
-                    <div class="description">
-                        <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
-                        <div>1.01.2023</div>
-                        <div>Warszawa</div>
-                    </div>
-                </div>
-
-                <div class="event">
-                    <img src="https://i.pinimg.com/750x/76/7e/ae/767eaeec66c44b3eae020c5fbea51c71.jpg" alt="Wydarzenie 6">
-                    <div class="description">
-                        <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
-                        <div>5.07.2023</div>
-                        <div>Kraków</div>
-                    </div>
-                </div>
-
-                <div class="event">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQswxGU-j5ya1AXFRAP4fgJzLQhIvKcpgGaba5qOMIh6sGRx4WFKSGQcAZ77fZOfqG6FyU&usqp=CAU" alt="Wydarzenie 7">
-                    <div class="description">
-                        <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
-                        <div>10.03.2023</div>
-                        <div>Gdańsk</div>
-                    </div>
-                </div>
-         
+        <section id="who-we-are" class="who-we-are">
+            <div style="font-size: 40px; text-align: center; text-transform: uppercase; color: rgb(237, 58, 133); font-weight: 900; margin-top: 40px;">WHO WE ARE?</div>
+            <p class="who-we-are-text"> We are a dynamic online platform dedicated to providing access to the latest information about exciting events in your region. Our mission is to gather and present a wide selection of cultural, artistic, sports, and entertainment events, enabling you to have exceptional experiences and create unforgettable moments. With our user-friendly website, convenient ticket purchasing, and a vibrant community of culture and entertainment enthusiasts, Eventify is your go-to destination for discovering and connecting with the best events in town. Join us today and explore the world of Eventify!</p>
         </section>
+        <div style="font-size: 40px; text-align: center; text-transform: uppercase; color: white; font-weight: 900; margin-top: 40px;">UP COMING EVENTS</div>
+        <section class="wrap">
+            <div class="event">
+                <img src="https://i.pinimg.com/736x/1d/6b/b0/1d6bb07de56417b386a75bb6591f615e.jpg" alt="Wydarzenie 5">
+                <div class="description">
+                    <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
+                    <div>1.01.2023</div>
+                    <div>Warszawa</div>
+                </div>
+            </div>
+
+            <div class="event">
+                <img src="https://i.pinimg.com/750x/76/7e/ae/767eaeec66c44b3eae020c5fbea51c71.jpg" alt="Wydarzenie 6">
+                <div class="description">
+                    <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
+                    <div>5.07.2023</div>
+                    <div>Kraków</div>
+                </div>
+            </div>
+
+            <div class="event">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQswxGU-j5ya1AXFRAP4fgJzLQhIvKcpgGaba5qOMIh6sGRx4WFKSGQcAZ77fZOfqG6FyU&usqp=CAU" alt="Wydarzenie 7">
+                <div class="description">
+                    <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
+                    <div>10.03.2023</div>
+                    <div>Gdańsk</div>
+                </div>
+            </div>
+
+        </section>
+        <div style="display: flex; justify-content: center;">
+            <button onclick="location.href='@Url.Action("Events", "Home")'" class="button-28" role="button">FIND OUT MORE</button>
+        </div>
 
 
     </main>
-  
+  <script>
+      // Pobranie referencji do przycisku
+      const button = document.getElementById("main-button");
+
+      // Pobranie referencji do sekcji
+      const section = document.getElementById("who-we-are");
+
+      // Dodanie nasłuchiwacza zdarzeń na kliknięcie przycisku
+      button.addEventListener("click", () => {
+          // Wyliczenie odległości od górnej krawędzi strony do sekcji
+          const offset = section.offsetTop;
+
+          // Płynne przewinięcie do sekcji
+          window.scrollTo({
+              top: offset,
+              behavior: "smooth"
+          });
+      });
+  </script>
 </body>
