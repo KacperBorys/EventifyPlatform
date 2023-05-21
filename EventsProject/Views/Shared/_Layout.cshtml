@@ -22,11 +22,12 @@
                 @Html.ActionLink("EVENTIFY", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul style="color: red;"  class="nav navbar-nav">
-                    <li >@Html.ActionLink("HOME", "Index", "Home")</li>
+                <ul style="color: red;" class="nav navbar-nav">
+                    <li>@Html.ActionLink("HOME", "Index", "Home")</li>
                     <li>@Html.ActionLink("ABOUT US", "About", "Home")</li>
                     <li>@Html.ActionLink("EVENTS", "Events", "Home")</li>
                     <li> @Html.ActionLink("PROFILE", "Profile", "Home")</li>
+                    <li>@Html.ActionLink("Shop", "Shopping_cart", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
