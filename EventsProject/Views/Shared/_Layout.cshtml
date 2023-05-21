@@ -11,7 +11,7 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div style="background: linear-gradient(180deg, rgba(4,0,9,1) 16%, rgba(11,0,26,1) 100%); " class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
@@ -22,8 +22,8 @@
                 @Html.ActionLink("EVENTIFY", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("HOME", "Index", "Home")</li>
+                <ul style="color: red;"  class="nav navbar-nav">
+                    <li >@Html.ActionLink("HOME", "Index", "Home")</li>
                     <li>@Html.ActionLink("ABOUT US", "About", "Home")</li>
                     <li>@Html.ActionLink("EVENTS", "Events", "Home")</li>
                     <li> @Html.ActionLink("PROFILE", "Profile", "Home")</li>
@@ -36,7 +36,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Moja aplikacja ASP.NET</p>
+            <p>&copy; @DateTime.Now.Year - Eventify</p>
         </footer>
     </div>
 
