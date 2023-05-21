@@ -7,5 +7,6 @@ namespace EventsProject.Models.Classes
 {
     public class EventsList
     {
+        
     }
 }
