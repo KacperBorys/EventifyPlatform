@@ -23,7 +23,7 @@ namespace EventsProject.Models.Classes
             Event_Price_Normal = event_Price_Normal;
             Event_Price_Reduced = event_Price_Reduced;
             Event_Category = event_Category;
-            Event_Max_Available_Seats = event_Max_Available_Seats;
+            Event_Available_Seats = event_Max_Available_Seats;
             Event_Start_Time = event_Start_Time;
             Event_Target_Audience = event_Target_Audience;
         }
@@ -35,7 +35,7 @@ namespace EventsProject.Models.Classes
         public double Event_Price_Normal { get; set; }
         public double Event_Price_Reduced { get; set; }
         public EventCategory Event_Category { get; set; }
-        public int Event_Max_Available_Seats { get; set; }
+        public int Event_Available_Seats { get; set; }
         public TimeSpan Event_Start_Time { get; set; }
         public EventAudience Event_Target_Audience { get; set; }
         
