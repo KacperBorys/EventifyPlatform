@@ -1,7 +1,7 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "CreateEvent";
 }
+
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,8 @@
         color: #ED3A85;
         text-align: center;
     }
-    form{
+
+    form {
         margin: 20px auto;
     }
 
@@ -21,11 +22,12 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        
     }
+
     .evenField {
         width: 500px;
     }
+
     input[type="text"],
     input[type="date"],
     input[type="number"],
@@ -39,6 +41,7 @@
         color: black;
         font-weight: bold;
     }
+
     label {
         display: inline;
         font-weight: bold;
@@ -46,7 +49,7 @@
         text-align: left;
     }
 
-   button {
+    button {
         background-color: #4CAF50;
         color: white;
         padding: 10px 20px;
@@ -54,48 +57,47 @@
         border-radius: 4px;
         cursor: pointer;
     }
-   button:hover {
-      background-color: #45a049;
-   }
 
-
-
-
+        button:hover {
+            background-color: #45a049;
+        }
 </style>
+
 <body>
     <main>
-        <form>
+        <form method="post">
+            @*@Html.AntiForgeryToken()*@
             <div class="form-group">
-                <label for="eventName">Event Name:</label>
-                <input type="text" class="evenField" , name="eventName" required>
+                <label for="EventName">Event Name:</label>
+                <input type="text" class="evenField" name="EventName" required>
             </div>
             <div class="form-group">
-                <label for="eventDate">Event Date:</label>
-                <input style="color: black" type="date" class="evenField" , name="eventDate" required>
-            </div>
-
-            <div class="form-group">
-                <label for="eventField">Event Place:</label>
-                <input type="text" class="evenField" , name="eventPlace" required>
+                <label for="EventDate">Event Date:</label>
+                <input style="color: black" type="date" class="evenField" name="EventDate" required>
             </div>
 
             <div class="form-group">
-                <label for="eventDescription">Event Description:</label>
-                <textarea maxlength="100" style="background-color:lightgray" class="evenField" , name="eventDescription"></textarea>
+                <label for="EventField">Event Place:</label>
+                <input type="text" class="evenField" name="EventPlace" required>
             </div>
 
             <div class="form-group">
-                <label for="ticketPriceNormal">Ticket Price (Normal):</label>
-                <input type="number" class="evenField" name="ticketPriceNormal" min="0" required>
+                <label for="EventDescription">Event Description:</label>
+                <textarea maxlength="100" style="background-color:lightgray" class="evenField" name="EventDescription"></textarea>
             </div>
 
             <div class="form-group">
-                <label for="ticketPriceReduced">Ticket Price (Reduced):</label>
-                <input type="number" class="evenField" name="ticketPriceReduced" min="0" required>
+                <label for="EventPriceNormal">Ticket Price (Normal):</label>
+                <input type="number" class="evenField" name="EventPriceNormal" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="EventPriceReduced">Ticket Price (Reduced):</label>
+                <input type="number" class="evenField" name="EventPriceReduced" min="0" required>
             </div>
             <div class="form-group">
-                <label for="eventCategory">Event Category:</label>
-                <select class="evenField" name="eventCategory" required style="color: black; background-color: lightgrey;">
+                <label for="EventCategory">Event Category:</label>
+                <select class="evenField" name="EventCategory" required style="color: black; background-color: lightgrey;">
                     <option value="Festival">Festival</option>
                     <option value="Concert">Concert</option>
                     <option value="Business_meeting">Business Meeting</option>
@@ -104,18 +106,18 @@
             </div>
 
             <div class="form-group">
-                <label for="availableSeats">Available Seats:</label>
-                <input type="number" class="evenField" name="availableSeats" min="0" required>
+                <label for="EventAvailableSeats">Available Seats:</label>
+                <input type="number" class="evenField" name="EventAvailableSeats" min="0" required>
             </div>
 
             <div class="form-group">
-                <label for="eventStartTime">Event Start Time:</label>
-                <input style="color: black; background-color: lightgrey;" type="time" class="evenField" name="eventStartTime" required">
+                <label for="EventStartTime">Event Start Time:</label>
+                <input style="color: black; background-color: lightgrey;" type="time" class="evenField" name="EventStartTime" required">
             </div>
 
             <div class="form-group">
-                <label for="targetAudience">Target Audience:</label>
-                <select class="evenField" name="targetAudience" required style="color: black; background-color: lightgrey;">
+                <label for="EventTargetAudience">Target Audience:</label>
+                <select class="evenField" name="EventTargetAudience" required style="color: black; background-color: lightgrey;">
                     <option value="Youth">Youth</option>
                     <option value="Parents">Parents</option>
                     <option value="Families">Families</option>
@@ -123,9 +125,21 @@
                     <option value="Other">Other</option>
                 </select>
             </div>
-            <button type="submit">Create Event</button>
-        </form>
+            <button formaction="@Url.Action("Create", "Event")" id="create-event" type="submit">Create Event</button>
+        </form >
     </main>
+    @if(ViewBag.Message != null){
+        <script>
+        // Sprawdzamy, czy ViewBag.Message zawiera komunikat
+
+        @*var message = '@ViewBag.Message';
+        if (message) {
+            // Wyświetlamy komunikat przy użyciu funkcji alert
+            alert(message);
+        }*@
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            }
+        </script>
+    }
 </body>
-
-

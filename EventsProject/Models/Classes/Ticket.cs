@@ -10,14 +10,14 @@ namespace EventsProject.Models.Classes
     {
         public Ticket(decimal price, bool isNormal, DateTime whenBought)
         {
-           Ticket_Price = price;
-           Ticket_IsNormal = isNormal;
-           Ticket_WhenBought = whenBought;
+           TicketPrice = price;
+           TicketIsNormal = isNormal;
+           TicketWhenBought = whenBought;
         }
 
-        public decimal Ticket_Price { get; set; }
-        public bool Ticket_IsNormal { get; set; }
-        public DateTime Ticket_WhenBought { get; set; }
+        public decimal TicketPrice { get; set; }
+        public bool TicketIsNormal { get; set; }
+        public DateTime TicketWhenBought { get; set; }
 
     }
 }

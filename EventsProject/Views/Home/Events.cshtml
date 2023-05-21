@@ -151,7 +151,7 @@
             <div class="description">
                 <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
                 <div style="color: #0B001A "> 01.01.2023 WARSZAWA</div>
-                <div  >KONCERT MALIKA MONTANY</div>
+                <div>KONCERT MALIKA MONTANY</div>
             </div>
         </div>
 
@@ -224,6 +224,21 @@
             <div class="question-title">Create it with us!</div>
         </div>
 
-        <button  onclick="location.href='@Url.Action("CreateEvent", "Home")'" style="margin-top: 20px;" class="button-28" role="button">CREATE EVENT</button>
+        <button onclick="location.href='@Url.Action("CreateEvent", "Home")'" style="margin-top: 20px;" class="button-28" role="button">CREATE EVENT</button>
     </section>
+    @if (ViewBag.Message != null)
+    {
+        <script>
+        // Sprawdzamy, czy ViewBag.Message zawiera komunikat
+
+        @*var message = '@ViewBag.Message';
+        if (message) {
+            // Wyświetlamy komunikat przy użyciu funkcji alert
+            alert(message);
+        }*@
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            }
+        </script>
+    }
 </body>

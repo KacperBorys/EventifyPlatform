@@ -15,15 +15,11 @@ namespace EventsProject.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
         public ActionResult Events()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
         public ActionResult CreateEvent()
