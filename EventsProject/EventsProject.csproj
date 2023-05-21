@@ -299,6 +299,7 @@
     <Content Include="Views\Home\CreateEvent.cshtml" />
     <Content Include="Views\Home\Event_Informations.cshtml" />
     <Content Include="Views\Home\Profile.cshtml" />
+    <Content Include="Views\Home\Shopping_cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

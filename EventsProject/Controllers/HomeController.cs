@@ -36,5 +36,9 @@ namespace EventsProject.Controllers
         {
             return View();
         }
+        public ActionResult Shopping_cart()
+        {
+            return View();
+        }
     }
 }
