@@ -16,91 +16,126 @@
 
         h1 {
             font-size: 60px;
-            margin-bottom: 60px;
+            margin: 30px 0 40px 0; 
         }
 
         .event-info {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
             margin: auto;
             width: 80%;
             text-align: center;
             font-size: 25px;
         }
+        .value{
+            color: white;
 
-            .event-info p {
-                margin-bottom: 25px;
-            }
-
-                .event-info p span {
-                    display: inline-block;
-                    margin: 5px;
-                    padding: 5px 10px;
-                    border-radius: 10px;
-                    background-color: azure;
-                    color: lightgray;
-                }
-
-        .button {
-            margin: 10px;
         }
 
-        .glow-on-hover {
-            width: 35%;
-            margin-right: 30px;
-            height: auto;
-            min-height: 100px;
-            margin-top: 50px;
-            border: none;
-            outline: none;
-            color: #fff;
-            background: #111;
+        .event-date {
+            font-size: 50px;
+            color: #5CE1E6;
+            font-weight: bold;
+        }
+        .event-place {
+            font-size: 70px;
+            color: #ED3A85;
+            font-weight: bold;
+        }
+        .event-seats{
+            font-size: 40px;
+
+        }
+
+        .ticket-button {
+            appearance: none;
+            background-color: transparent;
+            border: 2px solid #5CE1E6;
+            border-radius: 15px;
+            box-sizing: border-box;
+            color: #5CE1E6;
             cursor: pointer;
-            position: relative;
-            font-size: 30px;
-            z-index: 0;
-            border-radius: 10px;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: normal;
+            margin: 0 auto;
+            min-height: 60px;
+            min-width: 0;
+            outline: none;
+            padding: 16px 24px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            width: 20%;
+            will-change: transform;
         }
 
-            .glow-on-hover:before {
-                content: '';
-                background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-                position: absolute;
-                top: -2px;
-                left: -2px;
-                background-size: 400%;
-                z-index: -1;
-                filter: blur(5px);
-                width: calc(100% + 4px);
-                height: calc(100% + 4px);
-                animation: glowing 20s linear infinite;
-                opacity: 0;
-                transition: opacity .3s ease-in-out;
-                border-radius: 10px;
+            .ticket-button:disabled {
+                pointer-events: none;
             }
 
-            .glow-on-hover:active {
-                color: #000
+            .ticket-button:hover {
+                color: #fff;
+                background-color: rgb(92, 225, 230);
+                box-shadow: rgb(92, 225, 230,0.75)0 8px 15px;
+                transform: translateY(-2px);
             }
 
-                .glow-on-hover:active:after {
-                    background: transparent;
-                }
-
-            .glow-on-hover:hover:before {
-                opacity: 1;
+            .ticket-button:active {
+                box-shadow: none;
+                transform: translateY(0);
             }
 
-            .glow-on-hover:after {
-                z-index: -1;
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background: #ED3A85;
-                left: 0;
-                top: 0;
-                border-radius: 10px;
+        .ticket-button-reduced {
+            appearance: none;
+            background-color: transparent;
+            border: 2px solid rgb(9, 237, 0);
+            border-radius: 15px;
+            box-sizing: border-box;
+            color: rgb(9, 237, 0);
+            cursor: pointer;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: normal;
+            margin: 0 auto;
+            min-height: 60px;
+            min-width: 0;
+            outline: none;
+            padding: 16px 24px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            width: 20%;
+            will-change: transform;
+        }
+
+            .ticket-button-reduced:disabled {
+                pointer-events: none;
             }
 
+            .ticket-button-reduced:hover {
+                color: #fff;
+                background-color: rgb(9, 237, 0);
+                box-shadow: rgb(9, 237, 0, 0.75)0 8px 15px;
+                transform: translateY(-2px);
+            }
+
+            .ticket-button-reduced:active {
+                box-shadow: none;
+                transform: translateY(0);
+            }
+        
+       
         @@keyframes glowing {
             0% {
                 background-position: 0 0;
@@ -129,7 +164,7 @@
             border-bottom: 1px solid lightgray;
         }
 
-            .review-item:last-child {
+        .review-item:last-child {
                 border-bottom: none;
             }
 
@@ -148,21 +183,22 @@
 </head>
 <body>
     <div class="event-info">
+        <img style="margin: 0 auto; border-radius: 15px; width: 70%; box-shadow: rgb(92, 225, 230,0.75) 0 15px; " src="@Model.ImgSrc.ToString()" alt="@Model.EventName" />
         <h1>@Model.EventName</h1>
-        <p>Event Date: <span class="value">@Model.EventDate</span></p>
-        <p>Event Place: <span class="value">@Model.EventPlace</span></p>
-        <p>Event Description: <span class="value">@Model.EventDescription</span></p>
-        <p>Ticket Price (Normal): <span class="value">@Model.EventPriceNormal</span></p>
-        <p>Ticket Price (Reduced): <span class="value">@Model.EventPriceReduced</span></p>
-        <p>Event Category: <span class="value">@Model.EventCategory</span></p>
-        <p>Available Seats: <span class="value">@Model.EventAvailableSeats</span></p>
-        <p>Event Start Time: <span class="value">@Model.EventStartTime</span></p>
-        <p>Target Audience: <span class="value">@Model.EventTargetAudience</span></p>
+        <div>
+            <p class="event-place">@Model.EventPlace</p>
+            <p class="event-date">@Model.EventDate.ToString("dd.MM.yyyy")</p>
+            <p class="event-date">@Model.EventStartTime</p>
+        </div>
+        <p style="margin: 30px 0;">@Model.EventDescription</p>
+        <p class="event-seats"><span style="font-weight: bold; color: #5CE1E6; text-decoration: underline;">@Model.EventAvailableSeats</span> seats are waiting for <span style="color: #5CE1E6; font-weight: bold;">YOU!</span></p>
+        <p style="font-size: 50px; font-weight: bold; color: #ED3A85">BUY TICKETS NOW!</p>
+
     </div>
 
     <div class="buttons">
-        <button class="glow-on-hover" type="button">Buy a reduced ticket</button>
-        <button class="glow-on-hover" type="button">Buy a normal ticket</button>
+        <button class="ticket-button ticket-button-reduced" role="button">REDUCED TICKET <br /> @Model.EventPriceReduced zł</button>
+        <button class="ticket-button" role="button">NORMAL TICKET <br /> @Model.EventPriceNormal zł</button>
     </div>
 
     <div class="reviews">

@@ -182,7 +182,7 @@
         @foreach (var ev in EventsProject.Controllers.EventController.eventsList)
         {
             <div class="event">
-                <img src="https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?cs=srgb&dl=pexels-wolfgang-2747449.jpg&fm=jpg" alt="@ev.EventName">
+                <img src="@ev.ImgSrc.ToString()" alt="@ev.EventName">
                 <div class="description">
                     <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home", new { nameOfEvent = ev.EventName })'">find out more</div>
                     <div style="color: #0B001A ">@ev.EventDate.ToString("dd-MM-yyyy") @ev.EventPlace</div>

@@ -22,15 +22,13 @@ namespace EventsProject.Models.Classes
         public int EventAvailableSeats { get; set; }
         public TimeSpan EventStartTime { get; set; }
         public EventAudience EventTargetAudience { get; set; }
+        public string ImgSrc { get; set; }
 
         public int? LocalizationId { get; set; }
         public virtual Localization Localization { get; set; }
         public Event() { }
-        public Event(string eventName)
-        {
-            EventName = eventName;
-        }
-        public Event(string eventName, DateTime eventDate, string eventPlace, string eventDescription, double eventPriceNormal, double eventPriceReduced, EventCategory eventCategory, int eventMaxAvailableSeats, TimeSpan eventStartTime, EventAudience eventTargetAudience)
+        
+        public Event(string eventName, DateTime eventDate, string eventPlace, string eventDescription, double eventPriceNormal, double eventPriceReduced, EventCategory eventCategory, int eventMaxAvailableSeats, TimeSpan eventStartTime, EventAudience eventTargetAudience, string imgSrc)
         {
             EventName = eventName;
             EventDate = eventDate;
@@ -42,6 +40,7 @@ namespace EventsProject.Models.Classes
             EventAvailableSeats = eventMaxAvailableSeats;
             EventStartTime = eventStartTime;
             EventTargetAudience = eventTargetAudience;
-        }
+            ImgSrc = imgSrc;
+        }        
     }
 }
