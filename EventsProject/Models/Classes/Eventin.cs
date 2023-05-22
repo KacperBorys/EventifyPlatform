@@ -7,12 +7,12 @@ namespace EventsProject.Models.Classes
 {
     public class Eventin
     {
-        public List<Event> Events { get; set; } 
+        public List<Event> Events { get; set; }
         public List<Account> Accounts { get; set; }
 
         List<Person> accounts = new List<Person>();
 
-        public Eventin() 
+        public Eventin()
         {
             Events = new List<Event>();
             Accounts = new List<Account>();

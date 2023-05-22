@@ -8,13 +8,15 @@ namespace EventsProject.Models.Classes
 {
     public class Localization
     {
-        public Localization(string country, string town, string street, bool isInside)
+        public Localization(int id, string country, string town, string street, bool isInside)
         {
+            Id = id;
             Country = country;
             Town = town;
             Street = street;
             IsInside = isInside;
         }
+        public int Id { get; set; }
         public string Country { get; set; }
         public string Town { get; set; }
         public string Street { get; set; }
@@ -23,7 +25,7 @@ namespace EventsProject.Models.Classes
 
         public string Where()
         {
-            if(this.IsInside)
+            if (this.IsInside)
             {
                 return ("Inside");
             }
@@ -33,6 +35,6 @@ namespace EventsProject.Models.Classes
         {
             return ($"{this.Country} {this.Town} {this.Street} {Where()}");
         }
-    
+
     }
 }

@@ -175,17 +175,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305221832207_First.cs" />
+    <Compile Include="Migrations\202305221832207_First.designer.cs">
+      <DependentUpon>202305221832207_First.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Classes\Account.cs" />
     <Compile Include="Models\Classes\Event.cs" />
     <Compile Include="Models\Classes\Eventin.cs" />
-    <Compile Include="Models\Classes\EventsList.cs" />
     <Compile Include="Models\Classes\InvalidDataException.cs" />
     <Compile Include="Models\Classes\Localization.cs" />
     <Compile Include="Models\Classes\Person.cs" />
     <Compile Include="Models\Classes\Review.cs" />
     <Compile Include="Models\Classes\Ticket.cs" />
     <Compile Include="Models\Classes\TicketLimitException.cs" />
+    <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -319,6 +324,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202305221832207_First.resx">
+      <DependentUpon>202305221832207_First.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

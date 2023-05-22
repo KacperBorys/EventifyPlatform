@@ -11,9 +11,8 @@ namespace EventsProject.Models.Classes
 
     public class Event
     {
-        static int EventMaxTickets = 1;
         public int Id { get; set; }
-        public string EventName { get;set; }
+        public string EventName { get; set; }
         public DateTime EventDate { get; set; }
         public string EventPlace { get; set; }
         public string EventDescription { get; set; }
@@ -24,6 +23,8 @@ namespace EventsProject.Models.Classes
         public TimeSpan EventStartTime { get; set; }
         public EventAudience EventTargetAudience { get; set; }
 
+        public int? LocalizationId { get; set; }
+        public virtual Localization Localization { get; set; }
         public Event() { }
         public Event(string eventName)
         {
@@ -41,6 +42,6 @@ namespace EventsProject.Models.Classes
             EventAvailableSeats = eventMaxAvailableSeats;
             EventStartTime = eventStartTime;
             EventTargetAudience = eventTargetAudience;
-        }        
+        }
     }
 }
