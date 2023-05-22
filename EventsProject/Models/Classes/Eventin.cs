@@ -5,15 +5,19 @@ using System.Web;
 
 namespace EventsProject.Models.Classes
 {
-    public class Accounts
+    public class Eventin
     {
+        public List<Event> Events { get; set; } 
+        public List<Account> Accounts { get; set; }
+
         List<Person> accounts = new List<Person>();
 
-        public Accounts() 
-        { 
+        public Eventin() 
+        {
+            Events = new List<Event>();
+            Accounts = new List<Account>();
         }
-
-        public void AddAccount(Person p)
+        public void addAccount(Person p)
         {
             accounts.Add(p);
         }
@@ -21,7 +25,6 @@ namespace EventsProject.Models.Classes
         {
             accounts.Remove(p);
         }
-
-
     }
+
 }
