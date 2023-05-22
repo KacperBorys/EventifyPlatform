@@ -13,7 +13,7 @@ namespace EventsProject.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202305221832207_First"; }
+            get { return "202305222005480_First"; }
         }
         
         string IMigrationMetadata.Source
