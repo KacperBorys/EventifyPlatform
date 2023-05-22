@@ -21,9 +21,6 @@ namespace EventsProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Jeśli ModelState.IsValid jest prawdziwe, to model został poprawnie związany i walidowany.
-                // Możesz tutaj utworzyć obiekt `Event` na podstawie danych z modelu i wykonać odpowiednie operacje.
-
                 Event newEvent = new Event(
                     model.EventName,
                     model.EventDate,
@@ -34,9 +31,9 @@ namespace EventsProject.Controllers
                     model.EventCategory,
                     model.EventAvailableSeats,
                     model.EventStartTime,
-                    model.EventTargetAudience
+                    model.EventTargetAudience,
+                    model.ImgSrc
                 );
-                
                 eventsList.Add(newEvent);
                 return RedirectToAction("Events", "Home"); // Przekierowanie do innej akcji po utworzeniu obiektu Event
             }
@@ -46,6 +43,7 @@ namespace EventsProject.Controllers
             return View(model);
         }
 
+        
     }
     
 

@@ -104,7 +104,10 @@
                     <option value="Other">Other</option>
                 </select>
             </div>
-
+            <div class="form-group">
+                <label for="ImgSrc">Event image source:</label>
+                <input type="text" class="evenField" name="ImgSrc" required>
+            </div>
             <div class="form-group">
                 <label for="EventAvailableSeats">Available Seats:</label>
                 <input type="number" class="evenField" name="EventAvailableSeats" min="0" required>
@@ -126,7 +129,7 @@
                 </select>
             </div>
             <button formaction="@Url.Action("Create", "Event")" id="create-event" type="submit">Create Event</button>
-        </form >
+        </form>
     </main>
     @if(ViewBag.Message != null){
         <script>
