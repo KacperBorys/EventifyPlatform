@@ -10,20 +10,20 @@ namespace EventsProject.Models.Classes
     {
         public Localization(string country, string town, string street, bool isInside)
         {
-            LocalizationCountry = country;
-            LocalizationTown = town;
-            LocalizationStreet = street;
-            LocalizationIsInside = isInside;
+            Country = country;
+            Town = town;
+            Street = street;
+            IsInside = isInside;
         }
-        public string LocalizationCountry { get; set; }
-        public string LocalizationTown { get; set; }
-        public string LocalizationStreet { get; set; }
-        public bool LocalizationIsInside { get; set; }
+        public string Country { get; set; }
+        public string Town { get; set; }
+        public string Street { get; set; }
+        public bool IsInside { get; set; }
 
 
-        public string IsInside()
+        public string Where()
         {
-            if(this.LocalizationIsInside)
+            if(this.IsInside)
             {
                 return ("Inside");
             }
@@ -31,7 +31,7 @@ namespace EventsProject.Models.Classes
         }
         public override string ToString()
         {
-            return ($"{this.LocalizationCountry} {this.LocalizationTown} {this.LocalizationStreet} {IsInside()}");
+            return ($"{this.Country} {this.Town} {this.Street} {Where()}");
         }
     
     }
