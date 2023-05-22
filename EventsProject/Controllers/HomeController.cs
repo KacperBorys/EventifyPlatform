@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EventsProject.Models.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -32,9 +33,18 @@ namespace EventsProject.Controllers
             return View();
         }
 
-        public ActionResult Event_Informations() 
+        public ActionResult Event_Informations(string nameOfEvent) 
         {
-            return View();
+            // Pobierz wydarzenie o podanym identyfikatorze
+            Event eventInfo = EventsProject.Controllers.EventController.eventsList.FirstOrDefault(e => e.EventName == nameOfEvent);
+            if (eventInfo != null)
+            {
+                return View(eventInfo);
+            }
+
+            // Przekieruj na inny widok w przypadku, gdy nie znaleziono wydarzenia o podanym identyfikatorze
+            return RedirectToAction("Events", "Home");
+            
         }
         public ActionResult Shopping_cart()
         {

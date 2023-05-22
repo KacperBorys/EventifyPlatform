@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model EventsProject.Models.Classes.Event
+
+<!DOCTYPE html>
 <html>
 <head>
     <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
@@ -146,16 +148,16 @@
 </head>
 <body>
     <div class="event-info">
-        <h1>Event Name</h1>
-        <p>Event Date: <span class="value">Event Date Value</span></p>
-        <p>Event Place: <span class="value">Event Place Value</span></p>
-        <p>Event Description: <span class="value">Event Description Value</span></p>
-        <p>Ticket Price (Normal): <span class="value">Ticket Price (Normal) Value</span></p>
-        <p>Ticket Price (Reduced): <span class="value">Ticket Price (Reduced) Value</span></p>
-        <p>Event Category: <span class="value">Event Category Value</span></p>
-        <p>Available Seats: <span class="value">Available Seats Value</span></p>
-        <p>Event Start Time: <span class="value">Event Start Time Value</span></p>
-        <p>Target Audience: <span class="value">Target Audience Value</span></p>
+        <h1>@Model.EventName</h1>
+        <p>Event Date: <span class="value">@Model.EventDate</span></p>
+        <p>Event Place: <span class="value">@Model.EventPlace</span></p>
+        <p>Event Description: <span class="value">@Model.EventDescription</span></p>
+        <p>Ticket Price (Normal): <span class="value">@Model.EventPriceNormal</span></p>
+        <p>Ticket Price (Reduced): <span class="value">@Model.EventPriceReduced</span></p>
+        <p>Event Category: <span class="value">@Model.EventCategory</span></p>
+        <p>Available Seats: <span class="value">@Model.EventAvailableSeats</span></p>
+        <p>Event Start Time: <span class="value">@Model.EventStartTime</span></p>
+        <p>Target Audience: <span class="value">@Model.EventTargetAudience</span></p>
     </div>
 
     <div class="buttons">

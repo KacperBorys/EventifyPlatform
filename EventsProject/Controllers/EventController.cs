@@ -15,8 +15,8 @@ namespace EventsProject.Controllers
             return View();
         }
         public static List<Event> eventsList = new List<Event>() { };
+
         [HttpPost]
-        
         public ActionResult Create(Event model)
         {
             if (ModelState.IsValid)
@@ -45,5 +45,8 @@ namespace EventsProject.Controllers
 
             return View(model);
         }
+
     }
+    
+
 }
