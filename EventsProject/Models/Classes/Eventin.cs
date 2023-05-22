@@ -21,7 +21,7 @@ namespace EventsProject.Models.Classes
         {
             accounts.Add(p);
         }
-        public void removeAcount(Person p)
+        public void RemoveAcount(Person p)
         {
             accounts.Remove(p);
         }

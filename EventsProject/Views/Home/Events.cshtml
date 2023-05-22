@@ -146,77 +146,20 @@
     <h1 style="font-size: 40px; text-transform: uppercase; color: white; font-weight: 900;">events</h1>
 
     <section class="wrap">
-        <div class="event">
-            <img src="https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?cs=srgb&dl=pexels-wolfgang-2747449.jpg&fm=jpg" alt="Wydarzenie 1">
-            <div class="description">
-                <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
-                <div style="color: #0B001A "> 01.01.2023 WARSZAWA</div>
-                <div>KONCERT MALIKA MONTANY</div>
-            </div>
-        </div>
 
-        <div class="event">
-            <img src="https://cdn.pixabay.com/photo/2017/12/08/11/53/event-party-3005668__340.jpg" alt="Wydarzenie 2">
-            <div class="description">
-                <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
-                <div style="color: #0B001A "> 01.01.2023 WARSZAWA</div>
-                <div>KONCERT MALIKA MONTANY</div>
+        @foreach (var ev in EventsProject.Controllers.EventController.eventsList)
+        {
+            <div class="event">
+                <img src="https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?cs=srgb&dl=pexels-wolfgang-2747449.jpg&fm=jpg" alt="@ev.EventName">
+                <div class="description">
+                    <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
+                    <div style="color: #0B001A ">@ev.EventDate.ToString("dd-mm-yyyy") @ev.EventPlace</div>
+                    <div>@ev.EventName</div>
+                </div>
             </div>
-        </div>
+        }
 
-        <div class="event">
-            <img src="https://images.shiksha.com/mediadata/images/articles/1583747992phpzaxKKK.jpeg" alt="Wydarzenie 3">
-            <div class="description">
-                <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
-                <div style="color: #0B001A "> 01.01.2023 WARSZAWA</div>
-                <div>KONCERT MALIKA MONTANY</div>
-            </div>
-        </div>
-
-        <div class="event">
-            <img src="https://jandevents.com/wp-content/uploads/jand-party.jpg" alt="Wydarzenie 4">
-            <div class="description">
-                <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
-                <div style="color: #0B001A "> 01.01.2023 WARSZAWA</div>
-                <div>KONCERT MALIKA MONTANY</div>
-            </div>
-        </div>
-
-        <div class="event">
-            <img src="https://i.pinimg.com/736x/1d/6b/b0/1d6bb07de56417b386a75bb6591f615e.jpg" alt="Wydarzenie 5">
-            <div class="description">
-                <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
-                <div style="color: #0B001A "> 01.01.2023 WARSZAWA</div>
-                <div>KONCERT MALIKA MONTANY</div>
-            </div>
-        </div>
-
-        <div class="event">
-            <img src="https://i.pinimg.com/750x/76/7e/ae/767eaeec66c44b3eae020c5fbea51c71.jpg" alt="Wydarzenie 6">
-            <div class="description">
-                <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
-                <div style="color: #0B001A "> 01.01.2023 WARSZAWA</div>
-                <div>KONCERT MALIKA MONTANY</div>
-            </div>
-        </div>
-
-        <div class="event">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQswxGU-j5ya1AXFRAP4fgJzLQhIvKcpgGaba5qOMIh6sGRx4WFKSGQcAZ77fZOfqG6FyU&usqp=CAU" alt="Wydarzenie 7">
-            <div class="description">
-                <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
-                <div style="color: #0B001A "> 01.01.2023 WARSZAWA</div>
-                <div>KONCERT MALIKA MONTANY</div>
-            </div>
-        </div>
-
-        <div class="event">
-            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZXZlbnR8ZW58MHx8MHx8&w=1000&q=80" alt="Wydarzenie 8">
-            <div class="description">
-                <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
-                <div style="color: #0B001A "> 01.01.2023 WARSZAWA</div>
-                <div>KONCERT MALIKA MONTANY</div>
-            </div>
-        </div>
+        
     </section>
     <section class="center">
         <div>
@@ -226,19 +169,5 @@
 
         <button onclick="location.href='@Url.Action("CreateEvent", "Home")'" style="margin-top: 20px;" class="button-28" role="button">CREATE EVENT</button>
     </section>
-    @if (ViewBag.Message != null)
-    {
-        <script>
-        // Sprawdzamy, czy ViewBag.Message zawiera komunikat
-
-        @*var message = '@ViewBag.Message';
-        if (message) {
-            // Wyświetlamy komunikat przy użyciu funkcji alert
-            alert(message);
-        }*@
-            window.onload = function () {
-                alert("@ViewBag.Message");
-            }
-        </script>
-    }
+    
 </body>
