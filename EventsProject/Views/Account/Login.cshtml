@@ -64,16 +64,14 @@
         border-radius: 10px;
     }
 
-      .glow-on-hover a{
-          color: #fff;
-
-          display: block;
-      }
+        .glow-on-hover a {
+            color: #fff;
+            display: block;
+        }
 
         .glow-on-hover a {
             color: #fff;
             display: block;
-           
         }
 
         .glow-on-hover:before {
@@ -122,16 +120,14 @@
             background-position: 0 0;
         }
 
-    .button a{
-        color: white;
-    }
+        .button a {
+            color: white;
+        }
 
         100% {
             background-position: 0 0;
         }
     }
-
-    
 </style>
 
 <div>
@@ -166,14 +162,14 @@
 
                 <button class="glow-on-hover" type="submit" value="LOGIN">LOGIN</button>
                 <button class="glow-on-hover" type="button">@Html.ActionLink("REGISTER", "Register")</button>
-        
-        @* Włącz ten element po włączeniu potwierdzenia konta dla funkcji resetowania hasła
-            <p>
-                @Html.ActionLink("Nie pamiętasz hasła?", "ForgotPassword")
-            </p>*@
-    }
-            </section>
-        </div>
+
+                @* Włącz ten element po włączeniu potwierdzenia konta dla funkcji resetowania hasła
+                    <p>
+                        @Html.ActionLink("Nie pamiętasz hasła?", "ForgotPassword")
+                    </p>*@
+            }
+        </section>
+    </div>
 </div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
