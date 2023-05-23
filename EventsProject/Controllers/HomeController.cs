@@ -28,7 +28,20 @@ namespace EventsProject.Controllers
 
         public ActionResult Profile()
         {
-            return View();
+            List<ApplicationUser> listOfusersFromDB;
+            ApplicationUser user = new ApplicationUser();
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                listOfusersFromDB = db.Users.ToList();
+                user = listOfusersFromDB.FirstOrDefault(e => e.UserName.Equals(User.Identity.Name));
+            }
+
+            if (user != null)
+            {
+                return View(user);
+            }
+
+            return RedirectToAction("Events", "Home");
         }
 
         public ActionResult Event_Informations(string nameOfEvent)
