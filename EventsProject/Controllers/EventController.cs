@@ -24,6 +24,7 @@ namespace EventsProject.Controllers
         /// Static list containing events
         /// </summary>
         public static List<Event> eventsList = new List<Event>() { };
+        public static List<Ticket> ticketsList = new List<Ticket>() { };
 
 
         /// <summary>
@@ -118,6 +119,27 @@ namespace EventsProject.Controllers
                 }
             }
             return RedirectToAction("Events", "Home");
+        }
+        [HttpPost]
+        public ActionResult CreateTicket(Ticket model)
+        {
+            if (ModelState.IsValid)
+            {
+                Ticket newTicket = new Ticket(
+                    model.Price,
+                    model.IsNormal,
+                    model.WhenBought);
+                   
+                using (DatabaseContext db = new DatabaseContext())
+                {
+                    db.Tickets.Add(newTicket);
+                    db.SaveChanges();
+                }
+                ticketsList.Add(newTicket);
+                return RedirectToAction("Shopping_cart", "Home"); // Przekierowanie do innej akcji po utworzeniu obiektu Event
+            }
+            ViewBag.Message = "Event nie został utworzony";
+            return RedirectToAction("Event_Informations", "Home");
         }
     }
     

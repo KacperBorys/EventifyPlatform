@@ -8,9 +8,8 @@ namespace EventsProject.Models.Classes
 {
     public class Ticket
     {
-        public Ticket(int ID, decimal price, bool isNormal, DateTime whenBought)
-        {
-            Id = ID;
+        public Ticket(decimal price, bool isNormal, DateTime whenBought)
+        {          
             Price = price;
             IsNormal = isNormal;
             WhenBought = whenBought;
