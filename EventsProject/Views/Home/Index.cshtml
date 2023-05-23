@@ -202,6 +202,84 @@
     justify-content: center;
     align-items: center;
     }
+    .pencil, .xmark {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        display: none;
+        font-weight: bold;
+        font-size: 20px;
+        color: #5CE1E6;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+
+    .pencil {
+        top: 5%;
+        left: 4%;
+        font-size: 16px;
+    }
+
+    .xmark {
+        top: 5%;
+        right: -2%;
+        font-size: 25px;
+    }
+
+    .event:hover .caption {
+        display: block;
+        color: #5CE1E6;
+    }
+    /*Ustawienia dotyczące opcji wyboru polygon klinięciu x-a*/
+    .confirmation-dialog {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #5ce1e6;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+    }
+
+    .dialog-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        margin-bottom: 10px;
+    }
+
+    .options {
+        display: flex;
+        justify-content: center;
+    }
+
+    .option-btn {
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        background-color: #fff;
+        color: #5ce1e6;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        margin-right: 10px;
+    }
+
+        .option-btn:hover {
+            background-color: #4cb4b9;
+            color: #fff;
+        }
+
+    .event:hover .pencil {
+        display: block;
+        color: #5CE1E6;
+    }
+
+    .event:hover .xmark {
+        display: block;
+        color: #5CE1E6;
+    }
 
     .wrap {
         display: flex;
@@ -284,32 +362,55 @@
         </section>
         <div style="font-size: 40px; text-align: center; text-transform: uppercase; color: white; font-weight: 900; margin-top: 40px;">UP COMING EVENTS</div>
         <section class="wrap">
-            <div class="event">
-                <img src="https://i.pinimg.com/736x/1d/6b/b0/1d6bb07de56417b386a75bb6591f615e.jpg" alt="Wydarzenie 5">
-                <div class="description">
-                    <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
-                    <div>1.01.2023</div>
-                    <div>Warszawa</div>
+            @foreach (var ev in EventsProject.Controllers.EventController.eventsList.Take(3))
+            {
+                <div class="event">
+                    <img src="@ev.ImgSrc.ToString()" alt="@ev.EventName">
+                    <div class="description">
+                        <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home", new { nameOfEvent = ev.EventName })'">find out more</div>
+                        <div style="color: #0B001A ">@ev.EventDate.ToString("dd-MM-yyyy") @ev.EventPlace</div>
+                        <div>@ev.EventName</div>
+                        <div class="delete-icon" onclick="openConfirmationDialog(this)"><i class="fas fa-xmark xmark"></i></div>
+                        <div onclick="location.href='@Url.Action("EventModified", "Home", new { nameOfEvent = ev.EventName })'"><i class="fas fa-pencil pencil"></i></div>
+                        <div class="confirmation-dialog">
+                            <div class="dialog-body">
+                                <div class="dialog-title">Are you sure you want to delete the event?</div>
+                                <div class="options">
+                                    <button formaction="@Url.Action("Remove", "Event")" class="option-btn yes-btn" onclick="location.href='@Url.Action("Remove", "Event", new { nameOfEvent = ev.EventName })'">YES</button>
+                                    <button onclick="closeConfirmationDialog(this)" class="option-btn no-btn">NO</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            }
 
-            <div class="event">
-                <img src="https://i.pinimg.com/750x/76/7e/ae/767eaeec66c44b3eae020c5fbea51c71.jpg" alt="Wydarzenie 6">
-                <div class="description">
-                    <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
-                    <div>5.07.2023</div>
-                    <div>Kraków</div>
-                </div>
+            @*<div class="event">
+            <img src="https://i.pinimg.com/736x/1d/6b/b0/1d6bb07de56417b386a75bb6591f615e.jpg" alt="Wydarzenie 5">
+            <div class="description">
+                <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
+                <div>1.01.2023</div>
+                <div>Warszawa</div>
             </div>
+        </div>
 
-            <div class="event">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQswxGU-j5ya1AXFRAP4fgJzLQhIvKcpgGaba5qOMIh6sGRx4WFKSGQcAZ77fZOfqG6FyU&usqp=CAU" alt="Wydarzenie 7">
-                <div class="description">
-                    <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
-                    <div>10.03.2023</div>
-                    <div>Gdańsk</div>
-                </div>
+        <div class="event">
+            <img src="https://i.pinimg.com/750x/76/7e/ae/767eaeec66c44b3eae020c5fbea51c71.jpg" alt="Wydarzenie 6">
+            <div class="description">
+                <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
+                <div>5.07.2023</div>
+                <div>Kraków</div>
             </div>
+        </div>
+
+        <div class="event">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQswxGU-j5ya1AXFRAP4fgJzLQhIvKcpgGaba5qOMIh6sGRx4WFKSGQcAZ77fZOfqG6FyU&usqp=CAU" alt="Wydarzenie 7">
+            <div class="description">
+                <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home")'">find out more</div>
+                <div>10.03.2023</div>
+                <div>Gdańsk</div>
+            </div>
+        </div>*@
 
         </section>
         <div style="display: flex; justify-content: center;">
@@ -319,18 +420,10 @@
 
     </main>
   <script>
-      // Pobranie referencji do przycisku
       const button = document.getElementById("main-button");
-
-      // Pobranie referencji do sekcji
       const section = document.getElementById("who-we-are");
-
-      // Dodanie nasłuchiwacza zdarzeń na kliknięcie przycisku
       button.addEventListener("click", () => {
-          // Wyliczenie odległości od górnej krawędzi strony do sekcji
           const offset = section.offsetTop;
-
-          // Płynne przewinięcie do sekcji
           window.scrollTo({
               top: offset,
               behavior: "smooth"
