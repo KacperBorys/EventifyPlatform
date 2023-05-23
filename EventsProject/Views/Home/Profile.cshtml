@@ -7,36 +7,42 @@
         color: white; /* Biała czcionka */
         font-family: Poppins, sans-serif;
     }
+    #avatar{
+        position: relative;
+    }
+    #left-side {
+      
+        flex-basis: 50%;
+        align-items: center;
+        justify-content: center;
+        display: flex; /* Dodaj nową właściwość display */
+    }
 
-    #avatar {
+    #AvatarImage {
         border-radius: 50%;
         overflow: hidden;
         width: 50vh;
         height: 50vh;
         object-fit: cover;
-        position: relative;
-
+        cursor: pointer;
     }
+
     #avatar-text {
         display: none;
         color: white;
         font-size: 20px;
-        margin-top: 10px;
-        text-align: center;
+        position: absolute;
+        top: 90%;
+        left: 90%;
+        transform: translate(-50%, -50%);
     }
 
-    #left-side:hover #avatar-text {
+    #avatar:hover #avatar-text {
         display: block;
     }
     #container {
         display: flex;
         margin-top: 50px;
-    }
-
-    #left-side {
-        flex-basis: 50%;
-        align-items: center;
-        justify-content: center;
     }
 
     #right-side {
@@ -95,34 +101,36 @@
     <div id="container">
         <div id="left-side">
             <input type="file" id="fileInput" style="display: none;" accept="image/*">
-            <img id="avatar" src="~/Image/avatar.png" alt="Zdjęcie" style="cursor: pointer;">
-            <p id="avatar-text" style="position: absolute; top: 43%; left: 26%; transform: translate(-50%, -50%); color: white; font-size: 20px;">Change your avatar</p>
-        </div>
-        <div id="right-side">
-            <p class="user-name">Name SURNAME</p>
-            <div class="divider"></div>
-            <div style="margin-top: 30px; font-size: 30px;">
-                <p><span style="color: #ED3A85;font-weight:bold">Email:</span> example@example.com</p>
-                <p><span style="color: #ED3A85;font-weight:bold">Phone number:</span> 123-456-789</p>
-                <p><span style="color: #ED3A85;font-weight:bold">Given reviews:</span> 20</p>
+            <div id="avatar">
+                <img id="AvatarImage" src="~/Image/avatar.png" alt="Zdjęcie" style="cursor: pointer;">
+                <p id="avatar-text" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 20px;">Change your avatar</p>
             </div>
+            </div>
+            <div id="right-side">
+                <p class="user-name">Name SURNAME</p>
+                <div class="divider"></div>
+                <div style="margin-top: 30px; font-size: 30px;">
+                    <p><span style="color: #ED3A85;font-weight:bold">Email:</span> example@example.com</p>
+                    <p><span style="color: #ED3A85;font-weight:bold">Phone number:</span> 123-456-789</p>
+                    <p><span style="color: #ED3A85;font-weight:bold">Given reviews:</span> 20</p>
+                </div>
 
-            <div class="tickets-section">
-                <h3 class="tickets-heading">Your tickets</h3>
-                <div style="margin-left:30px;">
-                    <div class="ticket">
-                        <p>Koncert Malika Montany 21.03.2023 <span class="active">[Active]</span></p>
-                    </div>
-                    <div class="ticket">
-                        <p>Koncert Innej Osoby 15.01.2023 <span class="expired">[Expired]</span></p>
-                    </div>
-                    <div class="ticket">
-                        <p>Koncert Kolejnej Osoby 10.05.2023 <span class="active">[Active]</span></p>
+                <div class="tickets-section">
+                    <h3 class="tickets-heading">Your tickets</h3>
+                    <div style="margin-left:30px;">
+                        <div class="ticket">
+                            <p>Koncert Malika Montany 21.03.2023 <span class="active">[Active]</span></p>
+                        </div>
+                        <div class="ticket">
+                            <p>Koncert Innej Osoby 15.01.2023 <span class="expired">[Expired]</span></p>
+                        </div>
+                        <div class="ticket">
+                            <p>Koncert Kolejnej Osoby 10.05.2023 <span class="active">[Active]</span></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     <script>
         document.getElementById("avatar").addEventListener("click", function () {
             document.getElementById("fileInput").click();
@@ -133,7 +141,7 @@
             var reader = new FileReader();
 
             reader.onload = function (e) {
-                document.getElementById("avatar").src = e.target.result;
+                document.getElementById("AvatarImage").src = e.target.result;
             };
 
             reader.readAsDataURL(file);
