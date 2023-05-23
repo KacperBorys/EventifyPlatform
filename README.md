@@ -53,16 +53,6 @@ Eventify to strona internetowa zapewniająca użytkownikom możliwość rezerwac
 - Entity Framework
 - Bootstrap
 
-## Struktura projektu
-
-- **Controllers:** Folder zawierający kontrolery aplikacji.
-- **Models:** Folder zawierający modele danych (np. Event, User).
-- **Views:** Folder zawierający widoki aplikacji (pliki .cshtml).
-- **wwwroot:** Folder zawierający pliki statyczne (np. CSS, JavaScript, obrazy).
-- **DatabaseContext.cs:** Klasa odpowiedzialna za obsługę bazy danych.
-- **Startup.cs:** Klasa konfigurująca aplikację i usługi.
-- **README.md:** Aktualny plik README zawierający opis projektu.
-
 ## Uruchamianie projektu
 
 Aby uruchomić projekt Eventify, wykonaj następujące kroki:
@@ -76,10 +66,6 @@ Aby uruchomić projekt Eventify, wykonaj następujące kroki:
 
 Projekt Eventify został stworzony przez zespół programistów:
 
-- Jan Kowalski - jan.kowalski@example.com
-- Anna Nowak - anna.nowak@example.com
-- Piotr Wiśniewski - piotr.wisniewski@example.com
-
-## Licencja
-
-Ten projekt jest udostępniony na licencji [MIT License](LICENSE).
+- Adrian Żyła - adrianzyla2@gmail.com
+- Kacper Borys - boryskacper8375@gmail.com
+- Mateusz Strojek - mattirts@gmail.com
