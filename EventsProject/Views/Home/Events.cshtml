@@ -91,7 +91,47 @@
             display: block;
             color: #5CE1E6;
         }
+     /*Ustawienia dotyczące opcji wyboru polygon klinięciu x-a*/
+    .confirmation-dialog {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #5ce1e6;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+    }
 
+    .dialog-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        margin-bottom: 10px;
+    }
+
+    .options {
+        display: flex;
+        justify-content: center;
+    }
+
+    .option-btn {
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        background-color: #fff;
+        color: #5ce1e6;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        margin-right: 10px;
+    }
+
+        .option-btn:hover {
+            background-color: #4cb4b9;
+            color: #fff;
+        }
     .event:hover .pencil{
         display: block;
         color: #5CE1E6;
@@ -187,12 +227,21 @@
                     <div class="caption" onclick="location.href='@Url.Action("Event_Informations", "Home", new { nameOfEvent = ev.EventName })'">find out more</div>
                     <div style="color: #0B001A ">@ev.EventDate.ToString("dd-MM-yyyy") @ev.EventPlace</div>
                     <div>@ev.EventName</div>
-                    <div><i class="fas fa-xmark xmark"></i></div>
+                    <div class="delete-icon" onclick="openConfirmationDialog(this)"><i class="fas fa-xmark xmark"></i></div>
                     <div><i class="fas fa-pencil pencil"></i></div>
+                    <div class="confirmation-dialog">
+                        <div class="dialog-body">
+                            <div class="dialog-title">Are you sure you want to delete the event?</div>
+                            <div class="options">
+                                <button formaction="@Url.Action("Remove", "Event")" class="option-btn yes-btn">Yes</button>
+                                <button class="option-btn no-btn">No</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         }
-        
+
 
 
     </section>
@@ -204,5 +253,27 @@
 
         <button onclick="location.href='@Url.Action("CreateEvent", "Home")'" style="margin-top: 20px;" class="button-28" role="button">CREATE EVENT</button>
     </section>
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const deleteIcons = document.querySelectorAll('.delete-icon');
+            deleteIcons.forEach(icon => {
+                icon.addEventListener('click', () => openConfirmationDialog(icon));
+            });
+
+            function openConfirmationDialog(deleteIcon) {
+                const confirmationDialog = deleteIcon.closest('.event').querySelector('.confirmation-dialog');
+                confirmationDialog.style.display = 'block';
+
+                const closeButton = confirmationDialog.querySelector('.close-btn');
+                closeButton.addEventListener('click', closeConfirmationDialog);
+
+                const confirmButton = confirmationDialog.querySelector('.yes-btn');
+                const cancelButton = confirmationDialog.querySelector('.no-btn');
+
+                confirmButton.addEventListener('click', confirmDelete);
+                cancelButton.addEventListener('click', cancelDelete.bind(null, confirmationDialog));
+            }           
+        });
+    </script>
+
 </body>

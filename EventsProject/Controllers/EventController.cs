@@ -39,8 +39,18 @@ namespace EventsProject.Controllers
             }
 
             ViewBag.Message = "Event nie został utworzony";
-
-            return View(model);
+            return View();
+           
+        }
+        [HttpGet]
+        public ActionResult Remove(Event model) 
+        {
+            if (ModelState.IsValid) 
+            {
+                eventsList.Remove(model);
+                return RedirectToAction("Events", "Home");
+            }
+            return View();
         }
 
         

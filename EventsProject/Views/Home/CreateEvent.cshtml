@@ -131,19 +131,5 @@
             <button formaction="@Url.Action("Create", "Event")" id="create-event" type="submit">Create Event</button>
         </form>
     </main>
-    @if(ViewBag.Message != null){
-        <script>
-        // Sprawdzamy, czy ViewBag.Message zawiera komunikat
-
-        @*var message = '@ViewBag.Message';
-        if (message) {
-            // Wyświetlamy komunikat przy użyciu funkcji alert
-            alert(message);
-        }*@
-            window.onload = function () 
-            {
-                alert("@ViewBag.Message");
-            }
-        </script>
-    }
+       
 </body>
