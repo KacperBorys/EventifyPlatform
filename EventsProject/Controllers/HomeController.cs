@@ -21,10 +21,6 @@ namespace EventsProject.Controllers
             return View();
         }
 
-        //public ActionResult Events()
-        //{
-        //    return View();
-        //}
         public ActionResult CreateEvent()
         {
             return View();
@@ -55,22 +51,6 @@ namespace EventsProject.Controllers
             }
             return View(newEvent);
         }
-
-        //[HttpPost]
-        //public ActionResult EventModified(Event model)
-        //{
-        //    if(!ModelState.IsValid)
-        //    {
-        //        return View(model);
-        //    }
-        //    using (DatabaseContext db = new DatabaseContext())
-        //    {
-        //        db.Entry(model).State = EntityState.Modified;
-        //        db.SaveChanges();
-        //    }
-        //    return RedirectToAction("Events", "Home");
-        //}
-
         public ActionResult Shopping_cart()
         {
             return View();

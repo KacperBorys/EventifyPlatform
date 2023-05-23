@@ -11,13 +11,6 @@ namespace EventsProject.Controllers
 {
     public class EventController : Controller
     {
-        //private readonly DatabaseContext _context;
-
-        //public EventController(DatabaseContext context)
-        //{
-        //    _context = context;
-        //}
-        // GET: Event
         public ActionResult Index()
         {
             return View();
@@ -107,35 +100,8 @@ namespace EventsProject.Controllers
                 }
             }
 
-            //using (DatabaseContext db = new DatabaseContext())
-            //{
-            //    Event existingEvent = db.Events.FirstOrDefault(ev => ev.EventName == model.EventName);
-            //    if (existingEvent != null)
-            //    {
-            //        // Zaktualizuj istniejącą encję na podstawie danych z modelu
-            //        //db.Entry(existingEvent).CurrentValues.SetValues(model);
-            //        //db.SaveChanges();
-            //        db.Entry(existingEvent).State = EntityState.Modified;
-            //        db.Entry(existingEvent).CurrentValues.SetValues(model);
-            //        db.SaveChanges();
-            //    }
-            //    //db.Entry(model).State = EntityState.Modified;
-            //    //db.SaveChanges();
-            //}
             return RedirectToAction("Events", "Home");
         }
-
-        //[HttpGet]
-        //public ActionResult Events()
-        //{
-        //    List<Event> listOfEventsFromDB;
-        //    using(DatabaseContext db= new DatabaseContext())
-        //    {
-        //        listOfEventsFromDB = db.Events.ToList();
-        //        eventsList = listOfEventsFromDB;
-        //    }
-        //    return View();
-        //}
     }
     
 
