@@ -233,7 +233,7 @@
                         <div class="dialog-body">
                             <div class="dialog-title">Are you sure you want to delete the event?</div>
                             <div class="options">
-                                <button formaction="@Url.Action("Remove", "Event")" class="option-btn yes-btn">YES</button>
+                                <button formaction="@Url.Action("Remove", "Event")" class="option-btn yes-btn" onclick="location.href='@Url.Action("Remove", "Event", new { nameOfEvent = ev.EventName })'">YES</button>
                                 <button onclick="closeConfirmationDialog(this)"  class="option-btn no-btn">NO</button>
                             </div>
                         </div>

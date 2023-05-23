@@ -43,17 +43,17 @@ namespace EventsProject.Controllers
            
         }
         [HttpGet]
-        public ActionResult Remove(Event model) 
+        public ActionResult Remove(string nameOfEvent)
         {
-            if (ModelState.IsValid) 
+            Event eventInfo = EventsProject.Controllers.EventController.eventsList.FirstOrDefault(e => e.EventName == nameOfEvent);
+            if (eventInfo != null)
             {
-                eventsList.Remove(model);
+                eventsList.Remove(eventInfo);
                 return RedirectToAction("Events", "Home");
+               
             }
-            return View();
-        }
-
-        
+            return View();         
+        }        
     }
     
 
