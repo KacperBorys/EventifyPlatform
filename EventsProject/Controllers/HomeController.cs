@@ -67,5 +67,9 @@ namespace EventsProject.Controllers
             }
             return View();
         }
+        public ActionResult EventModifcation()
+        {
+            return View();
+        }
     }
 }
