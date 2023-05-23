@@ -1,0 +1,137 @@
+﻿@model EventsProject.Models.Classes.Event
+
+@{
+    ViewBag.Title = "EventModification";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        font-family: Poppins, sans-serif;
+        color: #ED3A85;
+        text-align: center;
+    }
+
+    form {
+        margin: 20px auto;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .evenField {
+        width: 500px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="number"],
+    textarea {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        resize: vertical;
+        background-color: lightgrey;
+        color: black;
+        font-weight: bold;
+    }
+
+    label {
+        display: inline;
+        font-weight: bold;
+        margin-bottom: 5px;
+        text-align: left;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #45a049;
+        }
+</style>
+
+<body>
+    <main>
+        <form method="post">
+            @*@Html.AntiForgeryToken()*@
+            <div class="form-group">
+                <label for="EventName">Event Name:</label>
+                <input type="text" value="@Model.EventName" class="evenField" name="EventName" required>
+            </div>
+            <div class="form-group">
+                <label for="EventDate">Event Date:</label>
+                <input style="color: black" type="date" value="@Model.EventDate.ToString("yyyy-MM-dd")" class="evenField" name="EventDate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="EventField">Event Place:</label>
+                <input type="text" class="evenField" value="@Model.EventPlace" name="EventPlace" required>
+            </div>
+
+            <div class="form-group">
+                <label for="EventDescription">Event Description:</label>
+                <textarea maxlength="600" style="background-color:lightgray" class="evenField" name="EventDescription">@Model.EventDescription</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="EventPriceNormal">Ticket Price (Normal):</label>
+                <input type="number" class="evenField"  name="EventPriceNormal" value="@Model.EventPriceNormal" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="EventPriceReduced">Ticket Price (Reduced):</label>
+                <input type="number" class="evenField" name="EventPriceReduced" value="@Model.EventPriceReduced" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="EventCategory">Event Category:</label>
+                <select class="evenField" name="EventCategory" required style="color: black; background-color: lightgrey;">
+                    <option value="Festival" if (@Model.EventCategory == "Festival") { selected }>Festival</option>
+                    <option value="Concert" if (@Model.EventCategory == "Concert") { selected }>Concert</option>
+                    <option value="Business_meeting" if (@Model.EventCategory == "Business_meeting") { selected }>Business Meeting</option>
+                    <option value="Other" if (@Model.EventCategory == "Other") { selected }>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ImgSrc">Event image source:</label>
+                <input type="text" class="evenField" value="@Model.ImgSrc.ToString()" name="ImgSrc" required>
+            </div>
+            <div class="form-group">
+                <label for="EventAvailableSeats">Available Seats:</label>
+                <input type="number" class="evenField" value="@Model.EventAvailableSeats" name="EventAvailableSeats" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="EventStartTime">Event Start Time:</label>
+                <input style="color: black; background-color: lightgrey;" type="time" class="evenField" value="@Model.EventStartTime" name="EventStartTime" required">
+            </div>
+
+            <div class="form-group">
+                <label for="EventTargetAudience">Target Audience:</label>
+                <select class="evenField" name="EventTargetAudience" required style="color: black; background-color: lightgrey;">
+                    <option value="Youth" if (@Model.EventTargetAudience == "Youth") { selected }>Youth</option>
+                    <option value="Parents" if (@Model.EventTargetAudience == "Parents") { selected }>Parents</option>
+                    <option value="Families" if (@Model.EventTargetAudience == "Families") { selected }>Families</option>
+                    <option value="Businessmen" if (@Model.EventTargetAudience == "Businessmen") { selected }>Businessmen</option>
+                    <option value="Other" if (@Model.EventTargetAudience == "Other") { selected }>Other</option>
+                </select>
+            </div>
+            <button formaction="@Url.Action("Modify", "Event")" id="modify-event" type="submit">Modify Event</button>
+        </form>
+    </main>
+
+</body>
