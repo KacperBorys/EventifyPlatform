@@ -1,4 +1,5 @@
-﻿using EventsProject.Models.Classes;
+﻿using EventsProject.Models;
+using EventsProject.Models.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,10 +20,10 @@ namespace EventsProject.Controllers
             return View();
         }
 
-        public ActionResult Events()
-        {
-            return View();
-        }
+        //public ActionResult Events()
+        //{
+        //    return View();
+        //}
         public ActionResult CreateEvent()
         {
             return View();
@@ -48,6 +49,18 @@ namespace EventsProject.Controllers
         }
         public ActionResult Shopping_cart()
         {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Events()
+        {
+            List<Event> listOfEventsFromDB;
+            using (DatabaseContext db = new DatabaseContext())
+            {
+                listOfEventsFromDB = db.Events.ToList();
+                EventsProject.Controllers.EventController.eventsList = listOfEventsFromDB;
+            }
             return View();
         }
     }

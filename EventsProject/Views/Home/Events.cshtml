@@ -1,11 +1,12 @@
-﻿@{
+﻿@*@model EventsProject.Controllers.EventController.eventsList*@
+@{
     ViewBag.Title = "Events";
 }
 
-    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+<link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 
 <style>
     body {
@@ -66,6 +67,7 @@
             text-transform: uppercase;
             cursor: pointer;
         }
+
     .pencil, .xmark {
         position: absolute;
         transform: translate(-50%, -50%);
@@ -76,22 +78,24 @@
         text-transform: uppercase;
         cursor: pointer;
     }
+
     .pencil {
         top: 5%;
         left: 4%;
         font-size: 16px;
     }
+
     .xmark {
         top: 5%;
         right: -2%;
         font-size: 25px;
     }
 
-        .event:hover .caption {
-            display: block;
-            color: #5CE1E6;
-        }
-     /*Ustawienia dotyczące opcji wyboru polygon klinięciu x-a*/
+    .event:hover .caption {
+        display: block;
+        color: #5CE1E6;
+    }
+    /*Ustawienia dotyczące opcji wyboru polygon klinięciu x-a*/
     .confirmation-dialog {
         display: none;
         position: absolute;
@@ -132,15 +136,17 @@
             background-color: #4cb4b9;
             color: #fff;
         }
-    .event:hover .pencil{
+
+    .event:hover .pencil {
         display: block;
         color: #5CE1E6;
     }
+
     .event:hover .xmark {
         display: block;
         color: #5CE1E6;
     }
-    
+
 
     .event .description {
         padding-top: 5px;
@@ -148,14 +154,15 @@
         background-color: #ED3A85;
     }
 
-        .event div {
-            color: white;
-        }
-        .description{
-            color: white;
-            font-weight: 900;
-            text-transform: uppercase;
-        }
+    .event div {
+        color: white;
+    }
+
+    .description {
+        color: white;
+        font-weight: 900;
+        text-transform: uppercase;
+    }
 
     .question-title {
         font-size: 30px;
@@ -164,11 +171,13 @@
         text-transform: uppercase;
         text-align: center;
     }
-    .center{
+
+    .center {
         display: flex;
         justify-content: center;
         flex-direction: column;
     }
+
     .button-28 {
         appearance: none;
         background-color: transparent;
@@ -196,9 +205,9 @@
         will-change: transform;
     }
 
-    .button-28:disabled {
-        pointer-events: none;
-    }
+        .button-28:disabled {
+            pointer-events: none;
+        }
 
         .button-28:hover {
             color: #fff;
@@ -207,12 +216,10 @@
             transform: translateY(-2px);
         }
 
-    .button-28:active {
-        box-shadow: none;
-        transform: translateY(0);
-    }
-        
-    
+        .button-28:active {
+            box-shadow: none;
+            transform: translateY(0);
+        }
 </style>
 <body>
     <h1 style="font-size: 40px; text-transform: uppercase; color: white; font-weight: 900;">events</h1>
@@ -234,7 +241,7 @@
                             <div class="dialog-title">Are you sure you want to delete the event?</div>
                             <div class="options">
                                 <button formaction="@Url.Action("Remove", "Event")" class="option-btn yes-btn" onclick="location.href='@Url.Action("Remove", "Event", new { nameOfEvent = ev.EventName })'">YES</button>
-                                <button onclick="closeConfirmationDialog(this)"  class="option-btn no-btn">NO</button>
+                                <button onclick="closeConfirmationDialog(this)" class="option-btn no-btn">NO</button>
                             </div>
                         </div>
                     </div>

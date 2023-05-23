@@ -1,4 +1,5 @@
-﻿using EventsProject.Models.Classes;
+﻿using EventsProject.Models;
+using EventsProject.Models.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,18 @@ namespace EventsProject.Controllers
 {
     public class EventController : Controller
     {
+        //private readonly DatabaseContext _context;
+
+        //public EventController(DatabaseContext context)
+        //{
+        //    _context = context;
+        //}
         // GET: Event
         public ActionResult Index()
         {
             return View();
         }
+
         public static List<Event> eventsList = new List<Event>() { };
 
         [HttpPost]
@@ -34,6 +42,13 @@ namespace EventsProject.Controllers
                     model.EventTargetAudience,
                     model.ImgSrc
                 );
+                using(DatabaseContext db= new DatabaseContext())
+                {
+                    db.Events.Add(newEvent);
+                    db.SaveChanges();
+                }
+                //_context.Events.Add(newEvent);
+                //_context.SaveChanges();
                 eventsList.Add(newEvent);
                 return RedirectToAction("Events", "Home"); // Przekierowanie do innej akcji po utworzeniu obiektu Event
             }
@@ -53,7 +68,19 @@ namespace EventsProject.Controllers
                
             }
             return View();         
-        }        
+        }
+
+        //[HttpGet]
+        //public ActionResult Events()
+        //{
+        //    List<Event> listOfEventsFromDB;
+        //    using(DatabaseContext db= new DatabaseContext())
+        //    {
+        //        listOfEventsFromDB = db.Events.ToList();
+        //        eventsList = listOfEventsFromDB;
+        //    }
+        //    return View();
+        //}
     }
     
 
