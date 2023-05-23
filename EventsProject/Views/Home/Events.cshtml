@@ -233,17 +233,14 @@
                         <div class="dialog-body">
                             <div class="dialog-title">Are you sure you want to delete the event?</div>
                             <div class="options">
-                                <button formaction="@Url.Action("Remove", "Event")" class="option-btn yes-btn">Yes</button>
-                                <button class="option-btn no-btn">No</button>
+                                <button formaction="@Url.Action("Remove", "Event")" class="option-btn yes-btn">YES</button>
+                                <button onclick="closeConfirmationDialog(this)"  class="option-btn no-btn">NO</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         }
-
-
-
     </section>
     <section class="center">
         <div>
@@ -253,6 +250,7 @@
 
         <button onclick="location.href='@Url.Action("CreateEvent", "Home")'" style="margin-top: 20px;" class="button-28" role="button">CREATE EVENT</button>
     </section>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const deleteIcons = document.querySelectorAll('.delete-icon');
@@ -264,15 +262,13 @@
                 const confirmationDialog = deleteIcon.closest('.event').querySelector('.confirmation-dialog');
                 confirmationDialog.style.display = 'block';
 
-                const closeButton = confirmationDialog.querySelector('.close-btn');
-                closeButton.addEventListener('click', closeConfirmationDialog);
-
-                const confirmButton = confirmationDialog.querySelector('.yes-btn');
                 const cancelButton = confirmationDialog.querySelector('.no-btn');
+                cancelButton.addEventListener('click', () => closeConfirmationDialog(confirmationDialog));
+            }
 
-                confirmButton.addEventListener('click', confirmDelete);
-                cancelButton.addEventListener('click', cancelDelete.bind(null, confirmationDialog));
-            }           
+            function closeConfirmationDialog(dialog) {
+                dialog.style.display = 'none';
+            }
         });
     </script>
 
