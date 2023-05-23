@@ -16,7 +16,7 @@
 
         h1 {
             font-size: 60px;
-            margin: 30px 0 40px 0; 
+            margin: 30px 0 40px 0;
         }
 
         .event-info {
@@ -29,9 +29,9 @@
             text-align: center;
             font-size: 25px;
         }
-        .value{
-            color: white;
 
+        .value {
+            color: white;
         }
 
         .event-date {
@@ -39,14 +39,15 @@
             color: #5CE1E6;
             font-weight: bold;
         }
+
         .event-place {
             font-size: 70px;
             color: #ED3A85;
             font-weight: bold;
         }
-        .event-seats{
-            font-size: 40px;
 
+        .event-seats {
+            font-size: 40px;
         }
 
         .ticket-button {
@@ -91,8 +92,7 @@
                 box-shadow: none;
                 transform: translateY(0);
             }
-
-        .ticket-button-reduced {
+            .ticket-button-reduced {
             appearance: none;
             background-color: transparent;
             border: 2px solid rgb(9, 237, 0);
@@ -134,8 +134,8 @@
                 box-shadow: none;
                 transform: translateY(0);
             }
-        
-       
+
+
         @@keyframes glowing {
             0% {
                 background-position: 0 0;
@@ -165,8 +165,8 @@
         }
 
         .review-item:last-child {
-                border-bottom: none;
-            }
+            border-bottom: none;
+        }
 
         .review-name {
             font-weight: bold;
@@ -179,6 +179,61 @@
         .review-description {
             margin-top: 5px;
         }
+
+        .confirmation-dialog-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 9999;
+        }
+
+        .confirmation-dialog {
+            background-color: #5CE1E6;
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            max-width: 400px;
+        }
+
+            .confirmation-dialog h2 {
+                margin-top: 0;
+            }
+
+            .confirmation-dialog p {
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+
+        .confirmation-dialog-buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        .confirmation-dialog-button {
+            appearance: none;
+            background-color: transparent;
+            border: 2px solid white;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 20px;
+            margin: 0 10px;
+            transition: background-color 0.3s ease;
+        }
+
+            .confirmation-dialog-button:hover {
+                background-color: white;
+                color: #5CE1E6;
+            }
     </style>
 </head>
 <body>
@@ -197,9 +252,10 @@
     </div>
 
     <div class="buttons">
-        <button class="ticket-button ticket-button-reduced" role="button">REDUCED TICKET <br /> @Model.EventPriceReduced zł</button>
-        <button class="ticket-button" role="button">NORMAL TICKET <br /> @Model.EventPriceNormal zł</button>
+        <button class="ticket-button ticket-button-reduced" role="button" onclick="showConfirmationDialog('reduced')">REDUCED TICKET <br /> @Model.EventPriceReduced zł</button>
+        <button class="ticket-button" role="button" onclick="showConfirmationDialog('normal')">NORMAL TICKET <br /> @Model.EventPriceNormal zł</button>
     </div>
+
 
     <div class="reviews">
         <h2>Event Reviews</h2>
@@ -219,5 +275,35 @@
             <div class="review-description">Fusce fringilla erat eu dolor mattis, sed aliquet leo lacinia.</div>
         </div>
     </div>
+    <div class="confirmation-dialog-container" id="confirmationDialogContainer">
+        <div class="confirmation-dialog">
+            <h2>Confirmation</h2>
+            <p>Do you want to buy it?</p>
+            <div class="confirmation-dialog-buttons">
+                <button class="confirmation-dialog-button confirmation-dialog-button-yes" onclick="confirmTicketPurchase()">Yes</button>
+                <button class="confirmation-dialog-button confirmation-dialog-button-no" onclick="cancelTicketPurchase()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showConfirmationDialog(ticketType) {
+            var confirmationDialogContainer = document.getElementById('confirmationDialogContainer');
+            confirmationDialogContainer.style.display = 'flex';
+            confirmationDialogContainer.dataset.ticketType = ticketType;
+        }
+
+        function confirmTicketPurchase() {
+            var confirmationDialogContainer = document.getElementById('confirmationDialogContainer');
+            var ticketType = confirmationDialogContainer.dataset.ticketType;
+            window.location.href = "/Home/Shopping_cart?ticketType=" + ticketType;
+        }
+
+        function cancelTicketPurchase() {
+            var confirmationDialogContainer = document.getElementById('confirmationDialogContainer');
+            confirmationDialogContainer.style.display = 'none';
+        }
+    </script>
 </body>
+
 </html>
