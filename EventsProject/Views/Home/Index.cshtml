@@ -316,21 +316,21 @@
         will-change: transform;
     }
 
-        .button-28:disabled {
-            pointer-events: none;
-        }
+    .button-28:disabled {
+        pointer-events: none;
+    }
 
-        .button-28:hover {
-            color: #fff;
-            background-color: #ED3A85;
-            box-shadow: rgb(237, 58, 133, 0.75)0 8px 15px;
-            transform: translateY(-2px);
-        }
+    .button-28:hover {
+        color: #fff;
+        background-color: #ED3A85;
+        box-shadow: rgb(237, 58, 133, 0.75)0 8px 15px;
+        transform: translateY(-2px);
+    }
 
-        .button-28:active {
-            box-shadow: none;
-            transform: translateY(0);
-        }
+    .button-28:active {
+        box-shadow: none;
+        transform: translateY(0);
+    }
 
 </style>
 <body>
@@ -352,7 +352,6 @@
                 <div>
                     <img class="profile-picture" src="~/Image/landing-page-image.png">
                 </div>
-
             </div>
 
         </section>
@@ -416,9 +415,8 @@
         <div style="display: flex; justify-content: center;">
             <button onclick="location.href='@Url.Action("Events", "Home")'" class="button-28" role="button">FIND OUT MORE</button>
         </div>
-
-
     </main>
+
   <script>
       const button = document.getElementById("main-button");
       const section = document.getElementById("who-we-are");
@@ -428,6 +426,24 @@
               top: offset,
               behavior: "smooth"
           });
+      });
+      document.addEventListener('DOMContentLoaded', () => {
+          const deleteIcons = document.querySelectorAll('.delete-icon');
+          deleteIcons.forEach(icon => {
+              icon.addEventListener('click', () => openConfirmationDialog(icon));
+          });
+
+          function openConfirmationDialog(deleteIcon) {
+              const confirmationDialog = deleteIcon.closest('.event').querySelector('.confirmation-dialog');
+              confirmationDialog.style.display = 'block';
+
+              const cancelButton = confirmationDialog.querySelector('.no-btn');
+              cancelButton.addEventListener('click', () => closeConfirmationDialog(confirmationDialog));
+          }
+
+          function closeConfirmationDialog(dialog) {
+              dialog.style.display = 'none';
+          }
       });
   </script>
 </body>
