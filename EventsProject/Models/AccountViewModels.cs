@@ -79,6 +79,14 @@ namespace EventsProject.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "Password must be the same.")]
         public string ConfirmPassword { get; set; }
+
+
+        [Phone]
+        [Display(Name = "Phone number")]
+        public string PhoneNumber { get; set; }
+
+        [Display(Name = "User name")]
+        public string UserName { get; set; }
     }
 
     public class ResetPasswordViewModel
