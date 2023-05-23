@@ -2,6 +2,7 @@
 using EventsProject.Models.Classes;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,13 +11,6 @@ namespace EventsProject.Controllers
 {
     public class EventController : Controller
     {
-        //private readonly DatabaseContext _context;
-
-        //public EventController(DatabaseContext context)
-        //{
-        //    _context = context;
-        //}
-        // GET: Event
         public ActionResult Index()
         {
             return View();
@@ -63,24 +57,51 @@ namespace EventsProject.Controllers
             Event eventInfo = EventsProject.Controllers.EventController.eventsList.FirstOrDefault(e => e.EventName == nameOfEvent);
             if (eventInfo != null)
             {
-                eventsList.Remove(eventInfo);
+                //eventsList.Remove(eventInfo);
+                using(DatabaseContext db = new DatabaseContext())
+                {
+                    db.Events.Attach(eventInfo);
+                    db.Events.Remove(eventInfo);
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Events", "Home");
+
                
             }
             return View();         
         }
 
-        //[HttpGet]
-        //public ActionResult Events()
-        //{
-        //    List<Event> listOfEventsFromDB;
-        //    using(DatabaseContext db= new DatabaseContext())
-        //    {
-        //        listOfEventsFromDB = db.Events.ToList();
-        //        eventsList = listOfEventsFromDB;
-        //    }
-        //    return View();
-        //}
+        [HttpPost]
+        public ActionResult EventModified(Event model)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Events", "Home");
+            }
+            using (DatabaseContext db = new DatabaseContext())
+            {
+                Event existingEvent = db.Events.FirstOrDefault(ev => ev.EventName == model.EventName);
+                if (existingEvent != null)
+                {
+                    existingEvent.EventName = model.EventName;
+                    existingEvent.EventDate = model.EventDate;
+                    existingEvent.EventPlace = model.EventPlace;
+                    existingEvent.EventDescription = model.EventDescription;
+                    existingEvent.EventPriceNormal = model.EventPriceNormal;
+                    existingEvent.EventPriceReduced = model.EventPriceReduced;
+                    existingEvent.EventCategory = model.EventCategory;
+                    existingEvent.EventAvailableSeats = model.EventAvailableSeats;
+                    existingEvent.EventStartTime = model.EventStartTime;
+                    existingEvent.EventTargetAudience = model.EventTargetAudience;
+                    existingEvent.ImgSrc = model.ImgSrc;
+
+                    db.SaveChanges();
+                }
+            }
+
+            return RedirectToAction("Events", "Home");
+        }
     }
     
 

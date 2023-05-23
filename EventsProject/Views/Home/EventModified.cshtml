@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "EventModification";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,6 +69,7 @@
     <main>
         <form method="post">
             @*@Html.AntiForgeryToken()*@
+
             <div class="form-group">
                 <label for="EventName">Event Name:</label>
                 <input type="text" value="@Model.EventName" class="evenField" name="EventName" required>
@@ -90,7 +91,7 @@
 
             <div class="form-group">
                 <label for="EventPriceNormal">Ticket Price (Normal):</label>
-                <input type="number" class="evenField"  name="EventPriceNormal" value="@Model.EventPriceNormal" min="0" required>
+                <input type="number" class="evenField" name="EventPriceNormal" value="@Model.EventPriceNormal" min="0" required>
             </div>
 
             <div class="form-group">
@@ -100,10 +101,10 @@
             <div class="form-group">
                 <label for="EventCategory">Event Category:</label>
                 <select class="evenField" name="EventCategory" required style="color: black; background-color: lightgrey;">
-                    <option value="Festival" if (@Model.EventCategory == "Festival") { selected }>Festival</option>
-                    <option value="Concert" if (@Model.EventCategory == "Concert") { selected }>Concert</option>
-                    <option value="Business_meeting" if (@Model.EventCategory == "Business_meeting") { selected }>Business Meeting</option>
-                    <option value="Other" if (@Model.EventCategory == "Other") { selected }>Other</option>
+                    <option value="Festival" if (@Model.EventCategory= ="Festival" ) { selected }>Festival</option>
+                    <option value="Concert" if (@Model.EventCategory= ="Concert" ) { selected }>Concert</option>
+                    <option value="Business_meeting" if (@Model.EventCategory= ="Business_meeting" ) { selected }>Business Meeting</option>
+                    <option value="Other" if (@Model.EventCategory= ="Other" ) { selected }>Other</option>
                 </select>
             </div>
             <div class="form-group">
@@ -123,14 +124,14 @@
             <div class="form-group">
                 <label for="EventTargetAudience">Target Audience:</label>
                 <select class="evenField" name="EventTargetAudience" required style="color: black; background-color: lightgrey;">
-                    <option value="Youth" if (@Model.EventTargetAudience == "Youth") { selected }>Youth</option>
-                    <option value="Parents" if (@Model.EventTargetAudience == "Parents") { selected }>Parents</option>
-                    <option value="Families" if (@Model.EventTargetAudience == "Families") { selected }>Families</option>
-                    <option value="Businessmen" if (@Model.EventTargetAudience == "Businessmen") { selected }>Businessmen</option>
-                    <option value="Other" if (@Model.EventTargetAudience == "Other") { selected }>Other</option>
+                    <option value="Youth" if (@Model.EventTargetAudience= ="Youth" ) { selected }>Youth</option>
+                    <option value="Parents" if (@Model.EventTargetAudience= ="Parents" ) { selected }>Parents</option>
+                    <option value="Families" if (@Model.EventTargetAudience= ="Families" ) { selected }>Families</option>
+                    <option value="Businessmen" if (@Model.EventTargetAudience= ="Businessmen" ) { selected }>Businessmen</option>
+                    <option value="Other" if (@Model.EventTargetAudience= ="Other" ) { selected }>Other</option>
                 </select>
             </div>
-            <button formaction="@Url.Action("Modify", "Event")" id="modify-event" type="submit">Modify Event</button>
+            <button formaction="@Url.Action("EventModified", "Event")" id="modify-event" type="submit">Modify Event</button>
         </form>
     </main>
 
