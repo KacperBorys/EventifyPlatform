@@ -235,7 +235,7 @@
                     <div style="color: #0B001A ">@ev.EventDate.ToString("dd-MM-yyyy") @ev.EventPlace</div>
                     <div>@ev.EventName</div>
                     <div class="delete-icon" onclick="openConfirmationDialog(this)"><i class="fas fa-xmark xmark"></i></div>
-                    <div><i class="fas fa-pencil pencil"></i></div>
+                    <div onclick="location.href='@Url.Action("EventModified", "Home", new { nameOfEvent = ev.EventName })'"><i class="fas fa-pencil pencil"></i></div>
                     <div class="confirmation-dialog">
                         <div class="dialog-body">
                             <div class="dialog-title">Are you sure you want to delete the event?</div>

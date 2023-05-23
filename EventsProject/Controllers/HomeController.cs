@@ -2,6 +2,7 @@
 using EventsProject.Models.Classes;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -34,19 +35,42 @@ namespace EventsProject.Controllers
             return View();
         }
 
-        public ActionResult Event_Informations(string nameOfEvent) 
+        public ActionResult Event_Informations(string nameOfEvent)
         {
-            // Pobierz wydarzenie o podanym identyfikatorze
             Event eventInfo = EventsProject.Controllers.EventController.eventsList.FirstOrDefault(e => e.EventName == nameOfEvent);
             if (eventInfo != null)
             {
                 return View(eventInfo);
             }
-
-            // Przekieruj na inny widok w przypadku, gdy nie znaleziono wydarzenia o podanym identyfikatorze
             return RedirectToAction("Events", "Home");
-            
         }
+
+        [HttpGet]
+        public ActionResult EventModified(string nameOfEvent)
+        {
+            Event newEvent = new Event();
+            using (DatabaseContext db = new DatabaseContext())
+            {
+                newEvent = db.Events.FirstOrDefault(e => e.EventName == nameOfEvent);
+            }
+            return View(newEvent);
+        }
+
+        //[HttpPost]
+        //public ActionResult EventModified(Event model)
+        //{
+        //    if(!ModelState.IsValid)
+        //    {
+        //        return View(model);
+        //    }
+        //    using (DatabaseContext db = new DatabaseContext())
+        //    {
+        //        db.Entry(model).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //    }
+        //    return RedirectToAction("Events", "Home");
+        //}
+
         public ActionResult Shopping_cart()
         {
             return View();
