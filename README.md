@@ -1,4 +1,4 @@
-# Eventify - Strona internetowa - System rezerwacji biletów
+# Eventify - System rezerwacji biletów.
 
 Eventify jest stroną internetową umożliwiającą rezerwację biletów na różne wydarzenia. Projekt został stworzony w oparciu o technologię ASP.NET Core MVC 5, działającą na platformie .NET Framework 4.7.2. Poniżej przedstawiamy opis funkcjonalności oraz struktury projektu.
 
@@ -14,13 +14,13 @@ Eventify jest stroną internetową umożliwiającą rezerwację biletów na ró�
 
 ## O projekcie
 
-Eventify to strona internetowa zapewniająca użytkownikom możliwość rezerwacji biletów na różne wydarzenia. Główne funkcje systemu to: przeglądanie listy dostępnych wydarzeń, tworzenie nowych wydarzeń, edycja istniejących wydarzeń, usuwanie wydarzeń, zarządzanie profilem użytkownika, zarządzanie zakupami w sklepie oraz możliwość tworzenia konta i logowania.
+Eventify to strona internetowa zapewniająca użytkownikom możliwość rezerwacji biletów na różne wydarzenia. Główne funkcje systemu to: przeglądanie listy dostępnych wydarzeń, tworzenie nowych wydarzeń, edycja istniejących wydarzeń, usuwanie wydarzeń, zarządzanie profilem użytkownika, zarządzanie zakupionymi biletami w sklepie oraz możliwość tworzenia konta i logowania.
 
 ## Funkcjonalności
 
 1. **Strona główna (Landing-page):**
    - Przedstawienie podstawowych informacji o stronie i krótki jej opis.
-   - Lista nadchodzących wydarzen.
+   - Lista nadchodzących wydarzeń.
 
 2. **O nas (About us):**
    - Prezentacja misji i wartości projektu Eventify.
@@ -37,7 +37,6 @@ Eventify to strona internetowa zapewniająca użytkownikom możliwość rezerwac
 
 5. **Sklep (Shop):**
    - Przeglądanie i zarządzanie zakupionymi biletami.
-   - Dodawanie biletów do koszyka.
 
 6. **Rejestracja i logowanie:**
    - Możliwość utworzenia konta użytkownika.
@@ -64,7 +63,7 @@ Aby uruchomić projekt Eventify, wykonaj następujące kroki:
 
 ## Autorzy
 
-Projekt Eventify został stworzony przez zespół programistów:
+Projekt Eventify został stworzony przez zespół:
 
 - Adrian Żyła - adrianzyla2@gmail.com
 - Kacper Borys - boryskacper8375@gmail.com
