@@ -1,4 +1,4 @@
-# Eventify - System rezerwacji biletów.
+# Eventify - System rezerwacji biletów. 🎫
 
 Eventify jest stroną internetową umożliwiającą rezerwację biletów na różne wydarzenia. Projekt został stworzony w oparciu o technologię ASP.NET Core MVC 5, działającą na platformie .NET Framework 4.7.2. Poniżej przedstawiamy opis funkcjonalności oraz struktury projektu.
 
@@ -16,7 +16,7 @@ Eventify jest stroną internetową umożliwiającą rezerwację biletów na ró�
 
 Eventify to strona internetowa zapewniająca użytkownikom możliwość rezerwacji biletów na różne wydarzenia. Główne funkcje systemu to: przeglądanie listy dostępnych wydarzeń, tworzenie nowych wydarzeń, edycja istniejących wydarzeń, usuwanie wydarzeń, zarządzanie profilem użytkownika, zarządzanie zakupionymi biletami w sklepie oraz możliwość tworzenia konta i logowania.
 
-## Funkcjonalności
+## Funkcjonalności 🔧
 
 1. **Strona główna (Landing-page):**
    - Przedstawienie podstawowych informacji o stronie i krótki jej opis.
@@ -42,7 +42,7 @@ Eventify to strona internetowa zapewniająca użytkownikom możliwość rezerwac
    - Możliwość utworzenia konta użytkownika.
    - Logowanie do istniejącego konta.
 
-## Technologie
+## Technologie 🌐
 
 - ASP.NET Core MVC 5
 - .NET Framework 4.7.2
@@ -52,7 +52,7 @@ Eventify to strona internetowa zapewniająca użytkownikom możliwość rezerwac
 - Entity Framework
 - Bootstrap
 
-## Uruchamianie projektu
+## Uruchamianie projektu ✅
 
 Aby uruchomić projekt Eventify, wykonaj następujące kroki:
 
@@ -61,7 +61,7 @@ Aby uruchomić projekt Eventify, wykonaj następujące kroki:
 3. Upewnij się, że masz zainstalowane wymagane zależności.
 4. Skompiluj i uruchom projekt.
 
-## Autorzy
+## Autorzy 👨‍💻
 
 Projekt Eventify został stworzony przez zespół:
 
