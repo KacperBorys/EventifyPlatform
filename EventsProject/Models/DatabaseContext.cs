@@ -16,6 +16,5 @@ namespace EventsProject.Models
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
 
-        public DbSet<Account> Accounts { get; set; }
     }
 }
