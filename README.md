@@ -66,7 +66,7 @@ Eventify to strona internetowa zapewniająca użytkownikom możliwość rezerwac
 4. **Profil użytkownika (Profile):**
    - Wyświetlanie podstawowych informacji o użytkowniku (email, numer telefonu, ilość aktywnych biletów na wydarzenia, ilość wystawionych recenzji).
 <div align="center">
-<img src = "https://github.com/Mateusz101/EventsProject/assets/100830524/52aa4c1e-8ef9-4dbc-8054-c0c395a96de7" width = "400"/>
+<img src = "https://github.com/Mateusz101/EventsProject/assets/100830524/52aa4c1e-8ef9-4dbc-8054-c0c395a96de7" width = "700"/>
 </div> 
 
 5. **Sklep (Shop):**
